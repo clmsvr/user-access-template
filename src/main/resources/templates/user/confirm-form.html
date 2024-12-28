@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt-br">
+
+<head>
+
+	<title> Template </title>  
+
+	<meta th:include="~{fragments :: head}"  th:remove="tag" >
+	    
+</head> 
+     
+<body>
+
+<div class="container">
+
+   <div th:replace="~{fragments :: header}"></div>   
+
+   
+   <!-- =========== BODY =========== -->       
+    <div class="center-form">
+    
+        <h2>Por favor, Confirme os seus dados</h2>
+        
+        <form   th:object="${user}"  
+                class="f-form" 
+                th:action="@{/user/open/confirm}" 
+                method="post" >
+    
+            <input type="hidden" th:field = "*{token}"  />
+            
+            <p>
+                <div class="labelBefore input2">
+                   <input placeholder="Email (*)"  type="email" th:field = "*{email}"  maxlength="100" />
+                   <p th:if="${#fields.hasErrors('email')}" th:errorclass="form-error" th:errors="*{email}" />
+                </div>
+            </p>           
+            <p>
+                <div class="labelBefore">
+                   <input placeholder="Senha (*)" type="password" th:field = "*{pwd}" maxlength="50" />
+                   <p th:if="${#fields.hasErrors('pwd')}" th:errorclass="form-error" th:errors="*{pwd}" />
+                </div>
+            </p>     
+            
+            <br>
+            <input type="submit"   value="Login" />                                 
+        </form>
+    
+    </div>
+   <!-- ========= FIM BODY ========= -->  
+               
+
+</div> <!-- end main container -->
+
+
+<div th:replace="~{fragments :: footer}"></div>
+
+</body>
+</html>

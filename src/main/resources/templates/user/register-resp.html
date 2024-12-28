@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt-br">
+
+<head>
+
+	<title> Template </title>  
+
+	<meta th:include="~{fragments :: head}"  th:remove="tag" >
+	    
+</head>
+     
+<body>
+
+<div class="container">
+
+   <div th:replace="~{fragments :: header}"></div>   
+
+   <!-- =========== BODY =========== -->        
+
+    <h1>Email enviado para confirmação.</h1>
+
+   <!-- ========= FIM BODY ========= -->  
+               
+
+</div> <!-- end main container -->
+
+
+<div th:replace="~{fragments :: footer}"></div>
+
+</body>
+</html>

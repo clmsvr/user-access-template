@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="pt-br">
+
+<head>
+
+    <title> Template </title>
+
+	<meta th:include="~{fragments :: head}"  th:remove="tag" ></meta>
+	    
+</head>  
+     
+<body>
+
+<div class="container">
+
+   <div th:replace="~{fragments :: header}"></div>   
+
+   <!-- =========== BODY =========== -->        
+   <script>
+     function validateLogonForm(form) {
+     
+       if (form.j_username.value == '') {
+         alert('O email do usuário é obrigatória.');
+         form.j_username.focus();
+         return false;
+       }
+       if (form.j_password.value == '') {
+         alert('A senha é obrigatória.');
+         form.j_password.focus();
+         return false;
+       }
+
+       return true;
+     }
+   </script>
+
+   <div class="center-form">
+
+       <h2>Login</h2>
+       
+       <form  class="form-horizontal "  name="logonForm" th:action="@{/login}"  
+               method="post" onsubmit="return validateLogonForm(this);" >
+      
+           <div class="form-group">
+               <div class="col-sm-8 ">
+                    <input class="form-control input-sm" placeholder="Email resistrado" type="email"  name="username"  maxlength="100"   autofocus />
+               </div>
+           </div>   
+
+           <div class="form-group">
+               <div class="col-sm-8">
+                    <input class="form-control input-sm" placeholder="Senha" type="password"  name="password"  maxlength="100"  autocomplete="off"  />
+               </div>
+           </div>   
+           
+           <div class="form-group">
+               <div class="col-sm-2">
+                   <input class="btn btn-primary btn-sm" type="submit"   value="Login" /> 
+               </div>        
+               <div class="col-sm-6 ">
+                   <p class="form-control-static input-sm" > <a href="/user/open/reset-pwd">Esqueci minha senha</a></p>
+               </div>
+           </div>           
+       </form> 
+
+       <div th:if="${param.error}">
+           Invalid username and password.
+       </div>
+       <div th:if="${param.logout}">
+           You have been logged out.
+       </div>              
+   </div>
+   <!-- ========= FIM BODY ========= -->  
+ 
+   
+   
+</div> <!-- end main container -->
+
+
+<div th:replace="~{fragments :: footer}"></div>
+
+</body>
+</html>

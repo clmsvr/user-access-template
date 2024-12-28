@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt-br">
+
+<head>
+
+	<title> Template </title> 
+
+	<meta th:include="~{fragments :: head}"  th:remove="tag" >
+	    
+</head> 
+     
+<body>
+
+<div class="container">
+
+   <div th:replace="~{fragments :: header}"></div>   
+
+   
+   <!-- =========== BODY =========== -->        
+    <div class="center-form">
+    
+    
+       <h3 class="blue-text">Senha atualizada com sucesso!</h3>
+    
+        
+    </div>
+   <!-- ========= FIM BODY ========= -->  
+               
+
+</div> <!-- end main container -->
+
+
+<div th:replace="~{fragments :: footer}"></div>
+
+</body>
+</html>

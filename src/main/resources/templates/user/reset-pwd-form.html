@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt-br">
+
+<head>
+
+	<title> Template </title>  
+
+	<meta th:include="~{fragments :: head}"  th:remove="tag" >
+	    
+</head>  
+     
+<body>
+
+<div class="container">
+
+   <div th:replace="~{fragments :: header}"></div>   
+
+   
+   <!-- =========== BODY =========== -->        
+    <div class="center-form">
+    
+        <h2>Reset de Senha</h2>
+        
+        <p>Digite seu email cadastrado e lhe enviaremos um link para atualizar sua senha.</p>
+        
+        
+       <div th:if="${#strings.isEmpty(param.message)}"  th:remove="tag">
+          <br>
+       </div>
+         
+       <div class="blue-text" th:if="${#strings.equals(param.message, '1')}">Email enviado. Verifique sua conta de email.</div>
+       <div class="red-text"  th:if="${#strings.equals(param.message, '2')}">Desculpe. Ocorreu um falha ao enviar o email para o Reset da senha.</div>
+       
+       <div th:if="${param.message == 2}"   th:remove="tag">
+          <span class="red-text"></span>
+       </div>
+       
+        <form   th:object="${email}" 
+                class="f-form" 
+                th:action="@{/user/open/reset-pwd}" 
+                method="post" >
+            <p>
+                <div class="labelBefore input2">
+                    <input placeholder="Email Cadasgtrado" type="email" th:field = "*{email}"  maxlength="100" />
+                    <p th:if="${#fields.hasErrors('email')}" th:errorclass="form-error" th:errors="*{email}" />
+                </div>
+            </p>
+            <br>
+            <input type="submit"   value="Reset" />          
+        </form> 
+    </div>
+   <!-- ========= FIM BODY ========= -->  
+               
+
+</div> <!-- end main container -->
+
+
+<div th:replace="~{fragments :: footer}"></div>
+
+</body>
+</html>

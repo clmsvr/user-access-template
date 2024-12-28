@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt-br">
+
+<head>
+
+    <title> Template </title>
+
+	<meta th:include="~{fragments :: head}"  th:remove="tag" >
+	    
+</head>
+     
+<body>
+
+<div class="container">
+
+   <div th:replace="~{fragments :: header}"></div>   
+
+   
+   <!-- =========== BODY =========== -->        
+   <h3>Dados do Participante</h3>
+
+   <div th:if="${#strings.isEmpty(param.message)}"  th:remove="tag" >
+      <br>
+   </div>
+   <div th:if="${!#strings.isEmpty(param.message)}"  th:remove="tag" >
+      <span class="blue-text">Formulario atualizado com sucesso!</apan>
+   </div>
+
+    <form   th:object="${user}" 
+            class="f-form" 
+            th:action="@{/user/mng/account}" 
+            method="post" >
+
+        <!-- <form:errors path="*" cssClass="errorblock" element="div" />  -->
+
+        <p>
+            <div class="labelBefore input2">
+                <label>Email</label> 
+                <input readonly="true" type="email" th:field = "*{email}" />
+                <p th:if="${#fields.hasErrors('email')}" th:errorclass="form-error" th:errors="*{email}" />
+            </div>
+        </p>     
+    
+    
+       <p>
+            <div class="labelBefore input2">
+               <label>Nome</label> 
+               <input placeholder="Nome Completo" type="text" th:field = "*{name}" />
+               <p th:if="${#fields.hasErrors('name')}" th:errorclass="form-error" th:errors="*{name}" />
+            </div>
+        </p>                                   
+
+         <p>
+            <div class="labelBefore">
+               <label>Cidade</label>
+               <input placeholder="Cidade" type="text" th:field = "*{city}" />
+               <p th:if="${#fields.hasErrors('city')}" th:errorclass="form-error" th:errors="*{city}" />
+               
+            </div>
+            <div class="labelBefore input05">
+               <label>Estado</label>
+                
+		        <select th:field="*{state}">
+					<option value="" label="" />
+		            <option th:each="p : ${states}" th:value="${p.key}" th:text="${p.key}" />
+		        </select>                
+                
+               <p th:if="${#fields.hasErrors('state')}" th:errorclass="form-error" th:errors="*{state}" />
+                    
+            </div>
+        </p>   
+
+        <p>
+            <div class="labelBefore input4">
+               <label>Comentário</label> 
+               <textarea  th:field = "*{comment}" />
+               <p th:if="${#fields.hasErrors('comment')}" th:errorclass="form-error" th:errors="*{comment}" />               
+            </div>
+        </p>   
+
+        <p>
+            <div class="labelBefore">
+               <label>Criação</label> 
+               <input readonly="true"  type="text" th:field = "*{sysCreationDate}" />
+            </div>
+            
+            <div class="labelBefore">
+               <label>Atualização</label> 
+               <input readonly="true"  type="text" th:field = "*{sysUpdateDate}" />
+            </div>
+        </p> 
+
+        <br>
+        <div class="offset"></div>
+        <input type="submit"   value="Atualizar" />    
+    </form> 
+   <!-- ========= FIM BODY ========= -->  
+               
+
+</div> <!-- end main container -->
+
+
+<div th:replace="~{fragments :: footer}"></div>
+
+</body>
+</html>
+
+
+
+
+
+    

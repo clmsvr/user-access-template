@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt-br">
+
+<head>
+
+	<title> Template </title> 
+
+	<meta th:include="~{fragments :: head}"  th:remove="tag" >
+	    
+</head>
+     
+<body>
+
+<div class="container">
+
+   <div th:replace="~{fragments :: header}"></div>   
+
+   
+   <!-- =========== BODY =========== -->        
+    <div class="center-form">
+    
+    
+       <h3>Digite sua nova Senha</h3>
+    
+       <div th:if="${#strings.isEmpty(param.message)}"  th:remove="tag">
+          <br>
+       </div>
+       <div th:if="${!#strings.isEmpty(param.message)}"  th:remove="tag">
+          <span class="blue-text">Senha atualizada com sucesso!</apan>
+       </div>
+    
+        <form   th:object="${pwd}"  
+                class="f-form" 
+                th:action="@{/user/open/reset-confirm}" 
+                method="post" >
+    
+             <input type="hidden" th:field = "*{token}"  />
+    
+            <p>
+                <div class="labelBefore">
+                   <input placeholder="Nova Senha (* min. 6)" type="password" th:field = "*{newpwd1}" maxlength="50" />
+                   <p th:if="${#fields.hasErrors('newpwd1')}" th:errorclass="form-error" th:errors="*{newpwd1}" />
+                </div>
+            </p>     
+            <p>
+                <div class="labelBefore">
+                   <input placeholder="Confirme a Senha" type="password" th:field = "*{newpwd2}" maxlength="50" />
+                   <p th:if="${#fields.hasErrors('newpwd2')}" th:errorclass="form-error" th:errors="*{newpwd2}" />
+                </div>
+            </p>  
+                                   
+            <br>
+            <input type="submit"   value="Alterar" />                                 
+        </form>
+        
+    </div>
+   <!-- ========= FIM BODY ========= -->  
+               
+
+</div> <!-- end main container -->
+
+
+<div th:replace="~{fragments :: footer}"></div>
+
+</body>
+</html>

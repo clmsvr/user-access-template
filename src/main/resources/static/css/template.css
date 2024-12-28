@@ -1,0 +1,842 @@
+/**************************************************
+Funcionalidades da Aplica��o
+***************************************************/
+.center-form{
+	margin: auto;
+	width: 350px;
+	bbborder: 1px solid gray;
+}
+
+.center-form-account{
+    margin: auto;
+    width: 500px;
+    bbborder: 1px solid gray;
+}
+
+.home-form{
+	margin: 10px 0px 20px 0px;
+}
+.home-form input:focus { /*efeito da borda copiado do bootstrap*/
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);    
+}
+.home-form input{
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #285e8e;
+    height: 40px;
+    margin-left: 50px;
+    font-size: 14px;
+}
+.home-form input:hover  {
+    background-color: #2b50a8;
+}
+
+.home-form input:disabled  {
+    background-color: #c3c3c3;
+    color: #fff;
+    border-color: #e8e8e8;
+}
+
+.block-list ul{
+	display:inline;
+    margin: 0;
+    padding:0;	
+}
+.block-list li{
+    display:inline;
+    margin-right: 5px;
+}
+/*Definir a fonte do Menu*/
+ul.f-menu-horizontalllll{
+    font-size:12px;
+    font-weight:bold;
+    margin: 0;
+    padding:0;
+    list-style: none;
+    display:inline;
+}
+/* dropdown de Primeiro nivel*/
+ul.f-menu-horizontallll li {
+    height: 30px;
+    float:left; 
+    position:relative;  
+    padding-left:12px; 
+    list-style: none; 
+    z-index: 99;
+}
+/**************** SUbtitle Tool *******************/
+.container-fix {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 970px;
+}
+.tool-container{
+    width: 940px;
+}
+.tool-container h1{
+    font-size: 18px;
+    font-weight: 500;
+}
+#player{ 
+    width: 500px; 
+    height: 350px;
+    float:left;    
+}
+#player > button.ytp-subtitles-button {
+    display: none !important;
+}
+#player-captions-window {
+    pointer-events: none;
+    z-index: 300000;
+    position: absolute;
+    top: 410px;
+    rrright: 0px;
+    width: 500px;
+    max-height: 80%;
+    overflow: hidden;
+    text-align: center;
+}
+#player-captions-text {
+    color: #fff;
+    padding: 4px;
+    background: #000;
+    opacity: .8;
+    font-size: 18px;
+    line-height: 24px;
+    white-space: pre-wrap;
+    display: none;
+}
+.subtitile-warning{
+	clear: left;
+    float: left;
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: .4;
+}
+#subtitile-warning-time{
+	opacity: initial;
+	font-weight: bold;
+}
+#subtitle{
+    width: 410px;
+    height: 425px;
+    display: inline-block;
+    margin: 0 0 0 20px;
+    overflow: auto;
+}
+#subtitle::-webkit-scrollbar { width:4px; background:transparent; } /* configurando scroll */
+#subtitle::-webkit-scrollbar-track { background: transparent; }
+#subtitle::-webkit-scrollbar-thumb { border-radius:4px; background: #cfe7e7; /*#a3d1d1;*/  }
+
+.subtitle-line{
+    float: left;
+    width: 100%;
+	display: inline-block;
+	padding-top: 2px;
+	margin: 0;
+    padding: 0;
+    font-size: 100%;
+    background: transparent;
+    border: 0;
+    border-top: 1px solid #f0f0f0;
+}
+.subtitle-line-focused {
+    background-color: #def;
+}
+.subtitle-line-edited {
+    background-color: #def;
+}
+.subtitle-line:hover {
+    background-color: #f8f8f8;
+}
+.subtitle-line-highlight {
+    border-left: 2px solid #cc181e;
+}
+
+.subtitle-time{
+	float: left;
+    width: 63px;
+    overflow: hidden;
+    font-size: 20%;	
+    margin: 5px 0 0 6px;
+    padding: 0;
+    border: 0;    
+    background: transparent;
+}
+.subtitle-time span{
+	width: 55px;
+	height: 16px;
+    margin: 0;
+    padding: 1px 4px;
+    background: transparent;
+    opacity: .4;
+    border: none;
+    line-height: 16px;
+    font-size: 13px;
+    overflow: hidden;
+} 
+.subtitle-time .line-count{
+	display: block;
+	margin-top: 3px;
+}
+.subtitle-text{
+	display: inline-block;
+}
+.subtitle-text textarea{
+	resize: none;
+	font-size: 13px;
+    width: 290px;
+    line-height: 16px;
+    margin: 1px 0 1px;
+    padding: 4px;
+    height: 58px;
+    overflow: auto;
+    display: block;
+	border: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+.subtitle-text textarea:hover {
+    background-color: transparent;
+} 
+.subtitle-text textarea:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+} 
+.subtitle-text .subtitle-edit{
+	background-color: white !important;
+	border: 1px solid #f0f0f0 !important;
+}
+/* fim  Subtitle Tool  */ 
+
+
+
+
+/**************************************************
+    Estrutura da Aplica��o
+***************************************************/
+
+/* Sticky Footer */
+html {
+  position: relative;
+  min-height: 100%;  
+}
+body {
+  margin-bottom: 25px; /* Margin bottom by footer height */
+  font-family: roboto, verdana, sans-serif;
+  font-size: 12px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  
+  width: 100%;
+  height: 25px; /* Set the fixed height of the footer here */
+  text-align: center;
+  vertical-align: middle;
+  border-top: #EBEBEB 1px solid;
+  color: #999;
+  font-size: 11px;  
+}
+
+
+/****************************************
+ Customiza��o Geral para Links
+ ****************************************/
+
+a img {border:none;}
+a:focus, a:hover {color:#0000FF;}
+a {color:#06c;text-decoration:underline;} /*#06c*/
+
+
+/**********  Header Modelo 2 ************** 
+Header com fundo, logo, appname, version, username, data.
+Estrutura:
+   <header>
+       <div class="f-header-wrap" >
+       
+                <div class="f-header-right  hidden-xs"> 
+                    <b class="glyphicon glyphicon-user"></b>
+                    <span>Admin</span>
+                    <span class="f-header-data">01 Janeiro 2014</span>   
+                </div>
+                
+                <div class="f-header-logo" >
+                    <div class="f-title-appname">
+                       <span>Aplication ID <b>Name</b></span>
+                       <span class="f-title-version hidden-xs">1.0.0 </span>    
+                    </div>
+                </div>          
+       </div>
+       #####  MENU  #####
+   </header>   
+**********************************************/
+header{
+	border-bottom: 1px solid #EBEBEB; 
+	/*margin-top: 5px;*/
+}
+.f-header-wrap{
+    /*border-bottom: 1px solid #EBEBEB;*/  
+    height: 100px; 
+    width:100%;
+}
+.f-header-logo{
+	float:left;
+	background: url(../image/header-subtitles2.png) top left no-repeat ; 
+	height: 100px; 
+    width:350px;
+}
+.f-header-right {
+    float: right;
+}
+.f-header-right a {
+    color:#06c;
+    text-decoration:none;
+    margin: 0px 10px 0px 0px;
+    font-size: 14px;
+}
+.f-header-right a:hover{
+	color:#004080;
+    text-decoration:underline;
+}
+.f-header-right a:focus {
+	color:#06c;
+}
+.f-header-data {
+	display: inline-block;
+    font-weight:normal;
+    margin:8px;
+    font-size: 12px;
+    opacity: .5;
+}
+/* fim menu 2 */
+
+
+/*****************************************************
+Menu Personalizado Responsivo
+******************************************************/
+/*Definir a fonte do Menu*/
+/*Navbar - tamanho*/
+.navbar {
+    min-height:30px !important;
+    margin-bottom: 0;
+}
+/*Navbar - borda*/
+.nav, .navbar-nav, .navbar-default, .navbar{
+    border: none; /*1px solid black;*/
+    box-shadow: none;
+}
+/*Navbar - recuo do menu p/ esqueda*/
+.collapse {
+    padding-left: 0;
+}
+/*Navbar - estilo */
+.navbar-default{
+  background-image: none;
+  background-color: #ffffff;
+}
+.navbar-nav > li > a {
+    padding-top:5px !important; 
+    padding-bottom:5px !important;
+    text-decoration: none;
+}
+.navbar-default .navbar-nav > li > a{
+  font-weight: bold;
+  font-size:11px;
+  color:#286EA0 ;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background-color: #F5F5F5;
+    color:#043454;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #043454;
+    background-color: #F5F5F5;
+}
+.dropdown-menu > li > a {
+  color:#286EA0 ; 
+  font-weight: bold;
+  font-size:11px;
+  text-decoration: none;
+}
+@media (min-width: 768px) { /*somente a partir desta resolu��o o  menu EXTENDIDO � exibido */
+    /*abrir drop down menu "on hover" */
+    ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;    
+    }  
+}
+
+
+/* ============================================= */ 
+/*                                               */
+/*        MENU HORIZONTAL CSS                    */
+/*                                               */
+/* ============================================= */
+
+/*Definir a fonte do Menu*/
+ul.f-menu-horizontal{
+	font-size:12px;
+	font-weight:bold;
+	margin: 0;
+	padding:0;
+	list-style: none;
+	display:inline;
+}
+/* dropdown de Primeiro nivel*/
+ul.f-menu-horizontal li {
+	height: 30px;
+	float:left; 
+	position:relative;	
+	padding-left:12px; 
+	list-style: none; 
+	z-index: 99;
+}
+/* items do menu principal */
+ul.f-menu-horizontal li a, ul.f-menu-horizontal li span {
+    line-height:30px; 
+	display:block;
+	text-decoration:none;
+	text-align:center;
+	border-bottom: 0;
+	overflow:hidden;
+	padding-left: 1px;
+	padding-right:12px;
+}
+ul.f-menu-horizontal li:hover a{
+	color:#043454;
+}
+
+/* Menu Dropdown de primeiro nivel */
+ul.f-menu-horizontal li ul {
+    display: none; 
+}
+ul.f-menu-horizontal li:hover ul{
+	width:155px; 
+    display:block; 
+    position:absolute; 
+    top:29px; 
+    left:0; 
+    margin: 0; 
+    padding:4px 0 0 0; 
+    background-color: #fff; 
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;    
+}
+ul.f-menu-horizontal li ul li {
+	width:153px;
+    float:left; 
+    position:relative; 
+    padding:0; 
+    margin:0;
+    border: none; 
+    height: 22px;
+    /*background: url("../image/dot.gif") repeat-x bottom;*/
+}
+ul.f-menu-horizontal li ul li.divider, .divider {
+  width:153px;
+  height: 1px !important;
+  margin: 0px 0px 5px 0 !important;
+  overflow:hiden;
+  background-color: #e5e5e5;
+  padding: 0 !important;
+}
+ul.f-menu-horizontal li:hover ul li a{
+	/*font-weight: normal;*/
+	font-size: 11px;
+    display:block;
+    color:#286EA0;
+    line-height: 20px;
+    width: 144px;
+    text-align: left;
+    margin: 0;
+    padding: 0 0 0 18px;
+}
+ul.f-menu-horizontal li:hover ul li a:hover{
+    color:#fff; 
+}
+ul.f-menu-horizontal li:hover ul li:hover{
+	background-color: #40799F;
+}
+/* dropdown de Segundo nivel*/
+ul.f-menu-horizontal li ul li ul {display: none;}
+ul.f-menu-horizontal li:hover ul li ul{display: none;}  /* dropdown de Segundo nivel*/
+ul.f-menu-horizontal li:hover ul li:hover ul{
+	display:block; 
+	position:absolute; 
+	left:150px; 
+	top:0;
+}
+
+
+/* ============================================= */ 
+/*              MENU VERTICAL CSS                */
+/* obs: elementos com classe ".hover" s�o usados */
+/*      p/ correcao do IE6                       */
+/* ============================================= */
+
+ul.f-menu-vertical {
+  
+   font-size:11px;
+   list-style: none;
+
+   width:147px; 
+   margin: 4px 0 0 0px; 
+   padding: 0;
+   background-color: #fff; 
+   border: 1px solid #D9D9D9;
+}
+
+/* dropdown de Primeiro nivel*/
+ul.f-menu-vertical li { 
+   width:147px;
+   list-style: none;   
+   position:relative; 
+   /*float:left; --> hack separado para IE: corrigir defeito no mouse hover sobre as listas*/
+   padding:0; 
+   margin:0;
+   background: url("../images/dot.gif") repeat-x bottom;
+}
+
+/* dropdown de Primeiro nivel*/
+
+ul.f-menu-vertical li.last{
+   background: none;
+}
+
+/* items do menu principal */
+ul.f-menu-vertical a {
+
+   text-decoration:none;
+   font-weight:bold;
+   border-bottom: 0; 
+   font-size:11px; 
+   overflow:hidden;
+   
+   display:block;
+   color:#286EA0;
+   line-height: 26px;
+   text-align: left;
+   margin: 0;
+   padding: 0 0 0 6px;
+   width: 141px;
+}
+
+ul.f-menu-vertical a:hover{color:#fff; background-color: #40799F;}
+
+ul.f-menu-vertical li ul { display: none;}
+
+ul.f-menu-vertical li:hover ul,
+ul.f-menu-vertical li.hover ul {
+   display:block; 
+   position:absolute; 
+   top:0px; 
+   left:147px; 
+   width:147px; 
+   margin: 0; 
+   padding: 0;
+   background-color: #fff; 
+   border: 1px solid #D9D9D9;
+}
+
+/* dropdown properties */
+ul.f-menu-vertical li:hover ul li a,
+ul.f-menu-vertical li.hover ul li a{
+   font-weight: normal;
+}
+
+ul.f-menu-vertical li.hover ul li a{ /*so para ie !!!*/
+    width: 147px;
+}
+
+/* dropdown de Segundo nivel*/
+ul.f-menu-vertical li ul li ul {display: none;}
+
+ul.f-menu-vertical li:hover ul li ul,
+ul.f-menu-vertical li.hover ul li ul{display: none;}  /* dropdown de Segundo nivel*/
+
+ul.f-menu-vertical li:hover ul li:hover ul,
+ul.f-menu-vertical li.hover ul li.hover ul{
+    display:block; position:absolute; left:147px; top:0;
+}
+
+
+/**************************************************
+  FORMs 
+ **************************************************/
+ .form-error{
+    display: block;
+    color: red;
+ }
+.f-form {
+    font-size: 12px;
+}
+.f-form legend{
+    font-size:16px; 
+}
+.red-text { color: #DA3838; font-weight: bold; }
+.green-text { color: #008000; font-weight: bold;  }
+.blue-text { color: #0000FF; font-weight: bold; }
+
+.f-form .f-checkbox{
+    display: inline-block; 
+    width: 128px; 
+    margin-right: 10px; 
+}
+.f-form .f-checkbox  label{
+    display: inline-block; 
+    width: 110px; 
+    text-align: left;
+}
+.f-form .f-checkbox  input{
+    margin: 0px;
+    padding: 0px;
+}
+.f-form  .labelUp.input05  label input,  .f-form .labelUp.input05 label select{
+    width: 65px;
+}
+.f-form  .labelUp.input2  label {
+    width: 280px;
+}
+.f-form .labelUp {
+	display: inline-block;
+	margin: 0px 15px 0px 0px;
+}
+.f-form .labelUp label{
+    display:inline-block; 
+    width: 130px; 
+    vertical-align: middle;
+}
+.f-form .labelUp label input,  .f-form .labelUp label select{
+    display:block; 
+    font-weight: normal; 
+    width:100%;
+    margin: 0px;
+}
+
+.f-form  .labelBefore{
+	width: 255px;
+}
+.f-form  .labelBefore.input05{
+    width: 190px;
+}
+.f-form  .labelBefore.input05  input,  .f-form .labelBefore.input05 select{
+    width: 65px ;
+}
+.f-form  .labelBefore.input2{
+    width: 395px;
+}
+.f-form .labelBefore.input2 input , .f-form .labelBefore.input2 textarea,  .f-form .labelBefore.input2 select {
+    width: 270px;
+}
+.f-form  .labelBefore.input4{
+    width: 800px;
+}
+.f-form .labelBefore.input4 input , .f-form .labelBefore.input4 textarea,  .f-form .labelBefore.input4 select {
+    width: 675px;
+}
+.f-form .labelBefore {
+    display: inline-block;
+    margin: 0px 15px 0px 0px;
+}
+.f-form .labelBefore label{
+    display: inline-block; 
+    width: 110px; 
+    text-align: right;
+    margin-right: 10px;
+}
+.f-form .labelBefore input, .f-form .labelBefore textarea,  .f-form .labelBefore select{
+    display:inline-block; 
+    font-weight: normal; 
+    width:130px;
+    margin: 0px;
+}
+@media (max-width: 768px) { 
+    .f-form .labelUp
+    {
+        width:100%;
+        display: block;
+    }
+    .f-form .labelUp label, .f-form .labelUp label input,  .f-form .labelUp label select {
+        width:100% !important;
+    }
+    .f-form .labelBefore
+    {
+        width:100% !important;
+        display: block;
+    }
+    .f-form .labelBefore label, .f-form .labelBefore input, .f-form .labelBefore textarea,  .f-form .labelBefore select{
+        width:100% !important;
+        text-align: left;
+    }
+}
+.f-form * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;   
+}
+.f-form  a {
+    vertical-align: bottom;
+    text-decoration: none;
+}
+.f-form a input[type=text] {
+    border-bottom: #0066CC 2px solid;
+    text-decoration: none;
+}
+.f-form span{
+    vertical-align: middle;
+}
+.f-form legend {
+    font-weight:bold;
+    border:0;
+    margin: 0;
+    padding: 0 3px 0 3px;
+    width: auto;    
+}
+.f-form fieldset {
+    /*padding:1.4em 1.4em 1.4em 1.4em;*/
+    padding: 15px;
+    margin:0;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+}
+.f-form p{
+    margin-bottom: 10px;;
+}
+.f-form label {
+    color: #666666;
+    font-weight: bold;
+}
+
+.f-form select, 
+.f-form textarea,
+.f-form input{
+    background-color: #FFFFFF;
+    color: #666666;
+    vertical-align: middle;
+    border: #D6D6D6 1px solid;
+    border-radius: 3px;
+}
+.f-form input, .f-form textarea, .f-form select{
+     padding-left: 5px;
+}
+.f-form input, .f-form select{
+     height: 25px;
+}
+.f-form input[readonly=readonly] {
+    background-color: #EBEBEB;
+}
+.f-form select:focus,
+.f-form textarea:focus, 
+.f-form input:focus { /*efeito da borda copiado do bootstrap*/
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);    
+}
+.f-form input[type=submit], 
+.f-form input[type=button] , 
+.f-form input[type=reset]  {
+	/*
+    color: #333333;
+    font-weight: bold;
+    background: url(../image/buttom_bg.gif) bottom repeat-x;
+    */
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #285e8e;
+    height: 30px;
+}
+.f-form input[type=submit]:hover, 
+.f-form input[type=button]:hover , 
+.f-form input[type=reset]:hover  {
+    background-color: #2b50a8;
+}
+.f-form .offset{
+	display: inline-block;
+	width: 120px;
+	margin: 0;
+	padding: 0;
+}
+
+/*JQuery UI*/
+/*controlar tamanho do datepitcher*/
+div.ui-datepicker{font-size:11px;}
+div.ui-datepicker thead th {background:#c3d9ff;}
+
+
+
+
+/********************************************
+  TABELAS
+*********************************************/    
+
+/*Bootstrap - personaliza��o do header */
+.table {
+    font-family: Verdana;
+    color: #666666;
+    font-size: 12px;    
+}
+.table th {
+    font-weight:bold; 
+    background-color: #A1CCDD;
+    text-align: center;
+}
+/* fim customiza��o bootstrap */
+
+
+/* Tabela simples Zebrada */  
+.tbzebra {
+    font-family: Verdana;
+}  
+.tbzebra tbody tr:nth-child(even) , .tbzebra tbody tr.even  {background:#e5ecf9;}
+.tbzebra th {font-weight:bold; background-color: #A1CCDD; border: 1px solid #C0C0C0;}
+.tbzebra td {border: 1px solid #C0C0C0;}
+.tbzebra thead th {background:#c3d9ff;}
+.tbzebra th, td {padding:4px 10px 4px 5px;}
+.tbzebra {
+    border-collapse: collapse;
+    color: #666666;
+    font-size: 12px;    
+    margin-bottom:1.4em;
+    width:100%;
+}
+/* Tabela Simples N�O zebrada*/   
+.tbsimple {
+    font-family: Verdana;
+}   
+.tbsimple th {background-color: #A1CCDD; border: 1px solid #C0C0C0;}
+.tbsimple td {border: 1px solid #C0C0C0; padding:0px 2px 0px 2px;}
+.tbsimple thead th {background:#c3d9ff;}
+.tbsimple th, td {padding:4px 10px 4px 5px;}
+.tbsimple .bloq {background-color: #AECBFF;}
+.tbsimple .debito {color: #A94D3F; font: bolder; background-color: #FED8DF;}
+.tbsimple .credito {}
+.tbsimple .saldo {background-color: #D6F3DA;}
+.tbsimple .verde {color: #006600;  background-color: #0EF59E;}
+.tbsimple .amarelo {color: #886D04;  background-color: #FFFF9F;}
+.tbsimple .laranja {color: #8A4500;  background-color: #FFBA75;}
+.tbsimple .vermelho {color: #A94D3F; background-color: #FED8DF;}
+.tbsimple {
+    border-collapse: collapse;
+    color: #666666;
+    font-size: 12px;    
+    margin-bottom:1.4em;
+    width:100%;
+}
+
+/********** fim TABELAS *****************/
+
+
+

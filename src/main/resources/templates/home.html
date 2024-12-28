@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="pt-br">
+
+<head>
+
+    <title> Template </title>
+
+	<meta th:include="~{fragments :: head}"  th:remove="tag" ></meta>
+	    
+</head>  
+     
+<body>
+
+<div class="container">
+
+   <div th:replace="~{fragments :: header}"></div>   
+
+   
+   
+   <!-- =========== BODY =========== -->        
+    <br>
+    <h1>Bem vindo ao nosso sistema! </h1>
+    <p>Recurso privado do Usuário, <mark>SEM</mark> uma 'Role'' específica. </p>
+            
+      <!-- 
+      hasAnyRole
+      hasRole
+      https://docs.spring.io/spring-security/site/docs/4.2.x/apidocs/org/springframework/security/access/expression/SecurityExpressionOperations.html
+      https://www.baeldung.com/spring-security-expressions
+       -->             
+    <div sec:authorize="hasAnyRole('Worker', 'Admin')" th:remove="tag"  > 
+       <h3>Recursos privados do usuário <mark>COM</mark> 'Role' específica.</h3>      
+    </div>
+        
+    <br/>
+    <!-- ========= FIM BODY ========= -->  
+
+    
+</div> <!-- end main container -->
+
+
+<div th:replace="~{fragments :: footer}"></div>
+
+</body>
+</html>

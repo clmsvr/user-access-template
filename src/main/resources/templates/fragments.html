@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="pt-br">
+
+      
+      
+<!-- 
+================================= 
+             HEAD
+=================================
+-->  
+<head th:fragment="head">
+
+    <meta charset="UTF-8">
+
+    <!-- sem cache no browser para as paginas da app  -->
+    <meta http-equiv="Pragma"        content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires"       content="0">
+    <meta name="author"              content="Claudio M. Silveira">
+    <meta name="keywords"            content="">
+    
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQ0lEQVQ4T63TvUoDQRAH8Jm50iKkVQt9Aitb0Vqw9iEyu+AHWghekECwkNu7K4W0YmVjIT5AOpG8gI3YmIuFlZDNXxauSA4TSOK2M/ObYZhlWvLxkvX0/0CWZave+5aIHIxGo5qI9ABcW2vv/pp2YoJQDKDLzPcAHBF9isiO9z4XkY6qtqvIBJAkSSeKor6qno4nllP1oijaVtW38dgEkKZpQURbxpj3aifn3C0zvxpj8qlAkiRDEVkxxvxUgTRN2wC+rbWtWRO8iMhZo9F4Hk8CwHmedwFcGWMepwLOuUMiaorInqp+hMSyOOzEFEWxEcfxcCoQAlmWnXvvT5j5gZn7zLxLROsA1gA0rbXxTKBENgHsA6iFxQ0Gg6d6vX7BzJdVZK5LdM7FJXJsrb0JzeYCQoFz7khEvlS1sxAw8xIX+Zm/m9eUEe4RhNoAAAAASUVORK5CYII=">
+    
+    <!-- ### CSS ### -->
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <!-- app --> 
+    <link  rel="stylesheet"  th:href="@{/fonts/roboto-local.css}" />
+    <link  rel="stylesheet"  th:href="@{/css/template.css}" />
+
+</head>
+<!--  =========== FIM HEAD =============== --> 
+
+
+
+<body>
+
+    
+    
+<!-- 
+================================= 
+             HEADER
+=================================
+-->  
+<header  th:fragment="header" >
+      <div class="f-header-wrap" >
+             <div class="f-header-right">
+           
+                 <ul sec:authorize="isAuthenticated()" class="f-menu-horizontal" >
+                     <li>
+                         <a href="#"><b class="glyphicon glyphicon-user"></b><span sec:authentication="name" th:remove="tag"></span></a>
+                         <ul>
+                             <li><a th:href="@{/user/mng/account}">Minha Conta</a></li>
+                             <li class="divider"></li>
+                             <li><a th:href="@{/user/mng/change-pwd}">Alterar Senha</a></li>
+                             <li><a th:href="@{/initlogout}">Sair</a></li>
+                         </ul>                       
+                     </li>
+                 </ul>
+		                 
+                 <div  sec:authorize="isAuthenticated() == false" >
+                    <a th:href="@{/initlogin}"><b class="glyphicon glyphicon-user"></b> Login</a>
+                    <a th:href="@{/user/open/register}">Cadastrar-se</a>
+                 </div>             
+                 
+                 <span class="f-header-data" th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy')}"></span>   
+             </div>
+             
+             <a th:href="@{/}">
+                 <div class="f-header-logo" > </div>               
+             </a>
+      </div>        
+</header>
+<!-- ==== FIM HEADER ===== --> 
+
+
+<!-- 
+================================= 
+             FOOTER
+=================================
+-->  
+<div id="footer" th:fragment="footer" >
+    <span>Copyright &copy; cms <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span>  template@gmail.com</span>
+</div>   
+<!-- ==== FIM FOOTER ===== --> 
+
+
+
+</body>
+</html>
+
