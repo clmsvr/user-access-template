@@ -218,10 +218,10 @@ public class UserOpenController
             log.warn("tentatica de reset de senha de email inesistente ["+email.getEmail()+"].");
             
             //NAO indicar erro ao usuario (1 - indica sucesso)
-            return "redirect:/user/open/reset-pwd?message=1";
+            //return "redirect:/user/open/reset-pwd?message=1";
             
-            //result.rejectValue("email", "email", "Email invalido.");
-            //return "user/reset-pwd-form";
+            result.rejectValue("email", "email", "Email invalido.");
+            return "user/reset-pwd-form";
         }
         
         try
@@ -240,7 +240,6 @@ public class UserOpenController
     @GetMapping({"/reset-confirm"})
     public String receiveResetToken(Model model, @RequestParam("token") String token) 
     {
-
     	try {
 			userService.verifyResetToken(token);
 		}

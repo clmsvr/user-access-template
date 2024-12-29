@@ -19,10 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("")
 public class HomeController 
 {
-	
-//	@Autowired
-//	private SecurityTool securityTool;  
-	
 	@Autowired
 	private UserRepository userRep;
 	
@@ -52,9 +48,9 @@ public class HomeController
     }
     
     /**
-     * inicia a acao de login.
+     * "initlogin" está protegico e o spring vai iniciar o processo de login
      * "/initlogin" poderia estar junto de root (""), mas no final a url no browser 
-     * teria o parh "/initlogin" e fica feio. 
+     * teria o path "/initlogin" e fica feio. 
      */
     @GetMapping({"/initlogin"})
     public String initlogin() 
@@ -63,10 +59,10 @@ public class HomeController
     }  
     
     //public String root(Model model, HttpServletRequest request)
-    //public String root(Model model, @AuthenticationPrincipal User user) //this will work even in WebFlux reactive environment versus the SecurityContextHolder.getContext().getAuthentication() which won't work because of paradigm shift from thread per request model to multiple requests per thread.
+    //public String root(Model model, @Authentication Principal User user) //this will work even in WebFlux reactive environment versus the SecurityContextHolder.getContext().getAuthentication() which won't work because of paradigm shift from thread per request model to multiple requests per thread.
     //public String root(Model model, Authentication  a)
     //public String root(Model model, Principal  p)
-    //"initlogin" esta protegico e o spring vai iniciar o processo de login
+    //
     
     //@GetMapping({ "" })
     //@GetMapping("")
@@ -74,20 +70,18 @@ public class HomeController
     public String root(Model model, Principal p, HttpServletRequest request) 
     throws SQLException
     {
-    	//if (securityTool.isAuthenticated() == false)  errado, pois o usuario pode ser anonimo, já que a pagina raiz está "permitida"
-    	
-    	//verificatt se o cokie de sessao recebido ainda tem um usuario cadastrado no banco.
     	User u = null;
-    	if (p != null) {
+    	
+    	//verificar se o cookie de sessao recebido ainda tem um usuario cadastrado no banco.
+    	if (p != null){
     		u = userRep.findByEmail(p.getName());
-    		if (u == null) {
+    		if (u == null) { // existe sessão mas sem usuario cadastrado
     			try{request.logout();}catch(Exception e) {} //remover a sessao.
     			System.out.println("SESSAO removida.");
     		}
     	}
     	
-    	
-    	if (u == null )//|| securityTool.isAnonymousAuthentication())
+    	if (u == null )
     		return welcome(model);
     	else
     		return home(model);
@@ -101,10 +95,6 @@ public class HomeController
     private String home(Model model) 
     throws SQLException 
     {
-        //if (securityTool.hasRole("worker") || securityTool.hasRole("admin"))
-    	//tring email = securityTool.getUserName();
-    	
-
         return "home";
     }
 }
