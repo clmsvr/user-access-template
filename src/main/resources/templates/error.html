@@ -1,42 +1,18 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="pt-br">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="pt-br" 
+      th:replace="~{template :: layout (~{:: main})}">
 
-<head>
-
-    <title> Template </title>
-
-    <meta th:include="~{fragments :: head}"  th:remove="tag" >
-        
-</head>
-     
 <body>
 
-<div class="container">
-
-   <div th:replace="~{fragments :: header}"></div>   
-
-   <!--
-       Thymeleaf will encode the text for HTML by default so that any special character 
-       is displayed correctly in the browser. 
-       Sometimes, however, we want to output the text without conversion, e.g. 
-       if our variable itself already contains HTML code. 
-       We can use the following syntax for this case - the u in utext stands for unformatted. 
-       
-       <p th:utext="${errorMessage}"></p>   
-   -->   
+<main>  
       
-    <!-- =========== BODY =========== -->        
     <p  th:text="${errorMessage}" ></p>
-    <!-- ========= FIM BODY ========= -->  
                
 
-</div> <!-- end main container -->
-
-
-<div th:replace="~{fragments :: footer}"></div>
+</main>
 
 </body>
 </html>

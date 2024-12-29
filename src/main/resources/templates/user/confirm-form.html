@@ -1,25 +1,13 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="pt-br">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="pt-br" 
+      th:replace="~{template :: layout (~{:: main})}">
 
-<head>
-
-	<title> Template </title>  
-
-	<meta th:include="~{fragments :: head}"  th:remove="tag" >
-	    
-</head> 
-     
 <body>
 
-<div class="container">
-
-   <div th:replace="~{fragments :: header}"></div>   
-
-   
-   <!-- =========== BODY =========== -->       
+<main>
     <div class="center-form">
     
         <h2>Por favor, Confirme os seus dados</h2>
@@ -49,13 +37,7 @@
         </form>
     
     </div>
-   <!-- ========= FIM BODY ========= -->  
-               
-
-</div> <!-- end main container -->
-
-
-<div th:replace="~{fragments :: footer}"></div>
+</main>
 
 </body>
 </html>

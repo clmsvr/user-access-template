@@ -1,30 +1,17 @@
 ﻿<!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="pt-br">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="pt-br" 
+      th:replace="~{template :: layout (~{:: main})}">
 
-<head>
-
-    <title> Template </title>
-
-	<meta th:include="~{fragments :: head}"  th:remove="tag" ></meta>
-	    
-</head>   
-     
 <body>
 
-<div class="container">
+<main>
 
-   <div th:replace="~{fragments :: header}"></div>   
-
-   <!-- =========== BODY =========== -->        
    <h3>Welcome Page. Aberta.</h3>
-   <!-- ========= FIM BODY ========= -->  
 
-</div> <!-- end main container -->
-
-<div th:replace="~{fragments :: footer}"></div>
+</main>
 
 </body>
 </html>
