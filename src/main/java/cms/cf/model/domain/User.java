@@ -1,7 +1,7 @@
 package cms.cf.model.domain;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -33,8 +33,9 @@ public class User
     private int    numBlocksSubtitled;
     private int    numBlocksTranslated;
     private String comment;        //descricao do proprio usuario
-    private Date   sysCreationDate = new Date();
-    private Date   sysUpdateDate = new Date();
+    
+    private LocalDateTime   creationDate = LocalDateTime.now() ;
+    private LocalDateTime   updateDate = LocalDateTime.now() ; 
     
 	@ManyToMany
 	@JoinTable(name = "user_has_role", 

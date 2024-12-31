@@ -288,7 +288,7 @@ header{
 }
 .f-header-logo{
 	float:left;
-	background: url(../image/header-subtitles2.png) top left no-repeat ; 
+	background: url(../image/header.png) top left no-repeat ; 
 	height: 100px; 
     width:350px;
 }

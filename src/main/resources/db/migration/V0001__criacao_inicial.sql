@@ -12,8 +12,8 @@ CREATE TABLE User (
   num_blocks_subtitled INT NULL DEFAULT 0,
   num_blocks_translated INT NULL DEFAULT 0,
   comment TEXT NULL COMMENT 'descricao do proprio usuario.',
-  sys_creation_date DATETIME NULL,
-  sys_update_date DATETIME NULL,
+  creation_date DATETIME not null,
+  update_date DATETIME not null,
   PRIMARY KEY (id),
   UNIQUE INDEX email_UNIQUE (email ASC) )
 ENGINE = InnoDB default character set = utf8mb4;

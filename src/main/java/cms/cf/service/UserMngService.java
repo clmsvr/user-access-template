@@ -2,8 +2,10 @@ package cms.cf.service;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import cms.cf.exceptions.TokenInvalidoException;
 import cms.cf.lib.MailTool;
 import cms.cf.model.api.PwdChange;
 import cms.cf.model.api.PwdReset;
+import cms.cf.model.api.UserModel;
 import cms.cf.model.api.UserRegister;
 import cms.cf.model.domain.ResetToken;
 import cms.cf.model.domain.Role;
@@ -27,6 +30,7 @@ import cms.cf.repository.RoleRepository;
 import cms.cf.repository.UserRepository;
 import cms.cf.repository.UserTempRepository;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -279,5 +283,18 @@ public class UserMngService
         
         userRep.save(user);
         userRep.flush();
+	}
+
+	public void updateUser(@Valid UserModel userModel, String email) {
+
+        User userdb = userRep.findByEmail(email);
+        //User userdb = userRep.getByEmail(userModel.getEmail()); //brecha de seguranca
+        //modelMapper.map(userModel, userdb);
+        BeanUtils.copyProperties(userModel, userdb, "id", "pwd", "email", "creationDate"); //iguinorar props "id" e "pwd"
+                                 // o formulario de usuario nao atualiza sennha 
+        userdb.setUpdateDate(LocalDateTime.now());
+    	userRep.save(userdb);
+    	userRep.flush();
+		
 	}
 }

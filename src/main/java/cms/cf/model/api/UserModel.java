@@ -1,6 +1,6 @@
 package cms.cf.model.api;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -36,8 +36,8 @@ public class UserModel
     private int    numBlocksSubtitled;
     private int    numBlocksTranslated;
     private String comment;        //descricao do proprio usuario
-    private Date   sysCreationDate;
-    private Date   sysUpdateDate;
+    private LocalDateTime   creationDate;
+    private LocalDateTime   updateDate;
 
     //@DateTimeFormat(pattern="MM/dd/yyyy")
     //@Pattern(regexp = "\\(?\\b([0-9]{2})\\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})\\b", message="Telefone em formato incorreto")

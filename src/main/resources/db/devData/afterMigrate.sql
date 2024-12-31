@@ -11,7 +11,7 @@ truncate Permission;
 
 set foreign_key_checks = 1;
 
-INSERT INTO user(id, email, pwd, name, sys_creation_date, sys_update_date) 
+INSERT INTO user(id, email, pwd, name, creation_date, update_date) 
 VALUES
 (1, 'admin@admin.com', sha2('123',512), 'Administrador', sysdate(), sysdate()),
 (2, 'user@user.com',   sha2('123',512), 'user',          sysdate(), sysdate());

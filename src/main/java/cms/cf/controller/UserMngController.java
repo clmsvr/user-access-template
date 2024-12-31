@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -134,14 +133,7 @@ public class UserMngController
             return "user/account-form";
         }
 
-        User userdb = userRep.findByEmail(p.getName());
-        //User userdb = userRep.getByEmail(userModel.getEmail()); //brecha de seguranca
-        //modelMapper.map(userModel, userdb);
-        BeanUtils.copyProperties(userModel, userdb, "id", "pwd", "email"); //iguinorar props "id" e "pwd"
-                                 // o formulario de usuario nao atualiza sennha 
-        
-    	userRep.save(userdb);
-    	userRep.flush();
+    	userService.updateUser(userModel,p.getName());
     	
         return "redirect:/user/mng/account?message=1";
     }    
