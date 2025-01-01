@@ -341,10 +341,4 @@ public class ConfigHelper
             if (bw != null)bw.close();
         }
     }
-    
-    public static void main(String[] args)
-    {
-        System.out.println(Base64.getEncoder().encodeToString("sud5273&*".getBytes()));
-        System.out.println(new String(Base64.getDecoder().decode("cHZkbSYxOTk4Kg==".getBytes())));
-    }
 }

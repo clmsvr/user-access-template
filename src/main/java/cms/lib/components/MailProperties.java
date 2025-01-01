@@ -1,4 +1,4 @@
-package cms.lib;
+package cms.lib.components;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

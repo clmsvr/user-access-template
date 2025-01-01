@@ -29,7 +29,7 @@ import cms.domain.repository.ResetTokenRepository;
 import cms.domain.repository.RoleRepository;
 import cms.domain.repository.UserRepository;
 import cms.domain.repository.UserTempRepository;
-import cms.lib.MailTool;
+import cms.lib.components.MailTool;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
