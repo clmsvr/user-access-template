@@ -21,7 +21,7 @@ public class ErrorController {
     {
     	log.error(throwable.toString(),throwable);
         String errorMessage = (throwable != null ? throwable.toString() : "Unknown error");
-        model.addAttribute("errorMessage", errorMessage);
+        model.addAttribute("errorMessage", "Desculpe! Ocorreu um erro inesperado: "+errorMessage);
         
         return "error";
     }
