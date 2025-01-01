@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cms.domain.exceptions.SendEmailException;
+import cms.lib.ConfigHelper;
 
 @Component
 public class MailTool {
