@@ -10,12 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import cms.cf.exceptions.AlreadyExistException;
-import cms.cf.exceptions.EmailInvalidoException;
-import cms.cf.exceptions.NotFoundException;
-import cms.cf.exceptions.PasswordInvalidoException;
-import cms.cf.exceptions.TokenExpiradoException;
-import cms.cf.exceptions.TokenInvalidoException;
+import cms.cf.exceptions.domain.AlreadyExistException;
+import cms.cf.exceptions.domain.EmailInvalidoException;
+import cms.cf.exceptions.domain.NotFoundException;
+import cms.cf.exceptions.domain.PasswordInvalidoException;
+import cms.cf.exceptions.domain.SendEmailException;
+import cms.cf.exceptions.domain.TokenExpiradoException;
+import cms.cf.exceptions.domain.TokenInvalidoException;
 import cms.cf.lib.MailTool;
 import cms.cf.model.api.PwdChange;
 import cms.cf.model.api.PwdReset;
@@ -126,7 +127,7 @@ public class UserMngService
 	 */
 	@Transactional
     public void createUserTempAndSendEmail(UserRegister user)
-    throws AlreadyExistException
+    throws AlreadyExistException, SendEmailException
     {
 		if (userRep.findByEmail(user.getEmail()) != null)
 		{
@@ -145,18 +146,11 @@ public class UserMngService
         userTempRep.save(ut);
         userTempRep.flush();
         
-        //Enviar email de confirma��o
-        try
-        {
-        	String url = mailTool.getConfigProperties().getConfirmUserUrl();
-        	String message = "Confirmação do email do cadasstro. <a href='"+url+"?token="+token+"'>Link</a>";
-        	String subject = "Template - Nova Conta.";
-        	mailTool.sendEmail(user.getEmail(), subject, message); 
-        }
-        catch (Exception e)
-        {
-            log.error("ERRO ao enviar EMAIL de confirmcao ao usuario ["+user.getEmail()+"]:  "+e.toString());
-        }
+        //Enviar email de confirmacao
+    	String url = mailTool.getConfigProperties().getConfirmUserUrl();
+    	String message = "Confirmação do email do cadasstro. <a href='"+url+"?token="+token+"'>Link</a>";
+    	String subject = "Template - Nova Conta.";
+    	mailTool.sendEmail(user.getEmail(), subject, message); 
     }
     
 	/**
@@ -166,7 +160,7 @@ public class UserMngService
 	 */    
     @Transactional
     public void createResetTokenAndSendEmail(String email)
-    throws Exception
+    throws SendEmailException
     {
         //gerar token para email de confirmacao
         String token = makeToken();

@@ -1,4 +1,4 @@
-package cms.cf.exceptions;
+package cms.cf.exceptions.domain;
 
 @SuppressWarnings("serial")
 public class AlreadyExistException extends Exception {

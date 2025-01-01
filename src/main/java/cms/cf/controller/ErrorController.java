@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
+import cms.cf.exceptions.api.BadRequestException;
+import cms.cf.exceptions.api.InternalErrorException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -25,12 +27,31 @@ public class ErrorController {
     }
     
     @ExceptionHandler(NoResourceFoundException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public String noresource(final Throwable throwable, final Model model) 
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public String noresource(final NoResourceFoundException e, final Model model) 
     {
-    	log.error(throwable.toString());
-        String errorMessage = (throwable != null ? throwable.toString() : "Unknown error");
-        model.addAttribute("errorMessage", errorMessage);
+    	log.error(e.toString());
+        model.addAttribute("errorMessage", "Recusro Inesistente: "+e.getMessage());
+        
+        return "error";
+    }
+    
+    @ExceptionHandler(BadRequestException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public String badRequessst(final BadRequestException e, final Model model) 
+    {
+    	log.error(e.toString());
+        model.addAttribute("errorMessage", "Requisição Inválida: "+e.getMessage());
+        
+        return "error";
+    }
+    
+    @ExceptionHandler(InternalErrorException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public String badRequessst(final InternalErrorException e, final Model model) 
+    {
+    	log.error(e.toString());
+        model.addAttribute("errorMessage", "Desculpe! Ocorreu uma falha inesperada: "+e.getMessage());
         
         return "error";
     }

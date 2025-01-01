@@ -1,7 +1,6 @@
 package cms.cf.controller;
 
 import java.security.Principal;
-import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -68,7 +67,6 @@ public class HomeController
     //@GetMapping("")
     @GetMapping
     public String root(Model model, Principal p, HttpServletRequest request) 
-    throws SQLException
     {
     	User u = null;
     	
@@ -93,7 +91,6 @@ public class HomeController
     }
 
     private String home(Model model) 
-    throws SQLException 
     {
         return "home";
     }

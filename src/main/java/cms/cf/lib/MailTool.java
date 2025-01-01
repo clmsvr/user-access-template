@@ -12,14 +12,21 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import cms.cf.exceptions.domain.SendEmailException;
+
 @Component
 public class MailTool {
 
 	@Autowired
 	MailProperties props;
-	
+
+    public MailProperties getConfigProperties()
+    {
+    	return props;
+    }
+    
     public void sendEmail(String recipentEmail, String subject, String textMessage)
-    throws Exception
+    throws SendEmailException
     {
     	// como preparar a conta do google para enviar email
     	//https://support.google.com/accounts/answer/185833?hl=pt-BR
@@ -27,7 +34,7 @@ public class MailTool {
         String pwd = ConfigHelper.decode64(props.getPassword());
         
         if (props.getSender() == null || pwd == null) 
-        	throw new Exception("Erro lendo credenciais para enviar EMAILs"); 
+        	throw new SendEmailException("Erro lendo credenciais para enviar EMAILs"); 
         
         /* Parametros de conexao com servidor Gmail */
         //SSL
@@ -61,28 +68,26 @@ public class MailTool {
         
         Message message = new MimeMessage(session);
         
-        //Remetente
-        message.setFrom(new InternetAddress(props.getSender())); 
+        try {
+			//Remetente
+			message.setFrom(new InternetAddress(props.getSender())); 
 
-        //Destinatário(s)
-        //Address[] toUser = InternetAddress.parse("sudenio@yahoo.com, cl.silveira@gmail.com");
-        //message.setRecipients(Message.RecipientType.TO, toUser);
-        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipentEmail));
-        message.setSubject(subject);
-        message.setText(textMessage);
+			//Destinatário(s)
+			//Address[] toUser = InternetAddress.parse("sudenio@yahoo.com, cl.silveira@gmail.com");
+			//message.setRecipients(Message.RecipientType.TO, toUser);
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipentEmail));
+			message.setSubject(subject);
+			message.setText(textMessage);
 
-        Transport.send(message);
+			Transport.send(message);
 //ou
 //        Transport transport = session.getTransport("smtp");
 //        transport.connect("smtp.gmail.com", "cl.silveira@gmail.com", "eceJ2740&*");
 //        transport.sendMessage(message, message.getAllRecipients());
 //        transport.close();            
+		} catch (Exception e) {
+			throw new SendEmailException(e);
+		}
         
     } 
-    
-    public MailProperties getConfigProperties()
-    {
-    	return props;
-    }
-    
 }

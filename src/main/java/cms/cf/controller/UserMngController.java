@@ -18,14 +18,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cms.cf.exceptions.BadRequestException;
-import cms.cf.exceptions.NotFoundException;
-import cms.cf.exceptions.PasswordInvalidoException;
+import cms.cf.exceptions.api.BadRequestException;
+import cms.cf.exceptions.domain.NotFoundException;
+import cms.cf.exceptions.domain.PasswordInvalidoException;
 import cms.cf.model.api.PwdChange;
 import cms.cf.model.api.UserModel;
 import cms.cf.model.domain.User;
 import cms.cf.repository.UserRepository;
-import cms.cf.security.SecurityTool;
 import cms.cf.service.UserMngService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -35,9 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/user/mng")
 public class UserMngController 
-{
-	@Autowired
-	private SecurityTool securityTool;  
+{ 
 	@Autowired
 	private UserRepository userRep;
 	@Autowired
@@ -86,10 +83,14 @@ public class UserMngController
     
     
     @GetMapping({"/account"})
-    public String account(Model model) 
+    public String account(Model model, Principal principal) 
     {
-        //Usuario TEM que estar logado. Acesso restrito
-        String email = securityTool.getUserName();
+//        //Usuario TEM que estar logado. Acesso restrito
+//        String email = securityTool.getUserName();
+
+        //Usuario TEM que estar logadob(principal !- null). Acesso restrito
+        String email = principal.getName();
+    	
         //aqui o username é o email.
         User user = userRep.findByEmail(email);
         
@@ -159,7 +160,7 @@ public class UserMngController
         if (pwd.getNewpwd1().equals(pwd.getNewpwd2()) == false)
         {
             pwd.reset();
-            result.rejectValue("newpwd2", "newpwd2", "Senhas não conferem."); //!!!! NAO funciona sem a declaracao "@ModelAttribute("user")"  acima.
+            result.rejectValue("newpwd2", "newpwd2", "Senhas não conferem."); 
             return "user/change-pwd-form";
         }
         

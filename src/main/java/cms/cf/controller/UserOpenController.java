@@ -13,14 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cms.cf.exceptions.AlreadyExistException;
-import cms.cf.exceptions.BadRequestException;
-import cms.cf.exceptions.EmailInvalidoException;
-import cms.cf.exceptions.InternalErrorException;
-import cms.cf.exceptions.NotFoundException;
-import cms.cf.exceptions.PasswordInvalidoException;
-import cms.cf.exceptions.TokenExpiradoException;
-import cms.cf.exceptions.TokenInvalidoException;
+import cms.cf.exceptions.api.BadRequestException;
+import cms.cf.exceptions.api.InternalErrorException;
+import cms.cf.exceptions.domain.AlreadyExistException;
+import cms.cf.exceptions.domain.EmailInvalidoException;
+import cms.cf.exceptions.domain.NotFoundException;
+import cms.cf.exceptions.domain.PasswordInvalidoException;
+import cms.cf.exceptions.domain.SendEmailException;
+import cms.cf.exceptions.domain.TokenExpiradoException;
+import cms.cf.exceptions.domain.TokenInvalidoException;
 import cms.cf.model.api.Email;
 import cms.cf.model.api.PwdReset;
 import cms.cf.model.api.UserRegister;
@@ -109,8 +110,9 @@ public class UserOpenController
         	result.rejectValue("email", "email", "Email indisponível.");
         	return "user/register-form";
 		}
-        catch (Exception e)
+        catch (SendEmailException e)
         {
+        	log.error("ERRO ao enviar EMAIL de confirmcao ao usuario ["+user.getEmail()+"]:  "+e.toString());        	
             throw new InternalErrorException(e);
         }
     }
@@ -129,8 +131,7 @@ public class UserOpenController
         if (userTempRep.findById(token).isPresent() == false)
         {      	
             log.warn("tentativa de confirmar token nao encontrado: " + token);
-            return sendErrorMessage(model, "Token Inválido !");
-            //throw new BadRequestException(e);
+            throw new BadRequestException("Token Inválido !");
         }
         
 		//sem dados pois precisa confirma-los
@@ -167,10 +168,10 @@ public class UserOpenController
             return "redirect:/";
         }
         catch (TokenInvalidoException e) {
-        	return sendErrorMessage(model, "Token Inválido !");
+        	throw new BadRequestException("Token Inválido !");
 		}
         catch (TokenExpiradoException e) {
-        	return sendErrorMessage(model, "Token Expirado !");
+        	throw new BadRequestException("Token Expirado !");
 		} 
         catch (EmailInvalidoException e) {
             user.setPwd("");
@@ -228,7 +229,7 @@ public class UserOpenController
         {
             userService.createResetTokenAndSendEmail(email.getEmail());
         }
-        catch(Exception e)
+        catch(SendEmailException e)
         {       	
             log.warn("Falhas enviando email de reset de senha: "+ e.getMessage(), e);
             //nao indicar erro ao usuario
@@ -244,10 +245,10 @@ public class UserOpenController
 			userService.verifyResetToken(token);
 		}
     	catch (TokenInvalidoException e) {
-			return sendErrorMessage(model, "Token Inválido !");
+    		throw new BadRequestException("Token Inválido !");
 		}
     	catch (TokenExpiradoException e) {
-            return sendErrorMessage(model, "Token Expirado !");
+    		throw new BadRequestException("Token Expirado !");
 		}
     	
         PwdReset pwd = new PwdReset();
@@ -268,7 +269,7 @@ public class UserOpenController
         if (pwd.getToken() == null)
         {
             log.warn("token nao encontrado");
-            return sendErrorMessage(model, "Operaçãp inválida.");
+            throw new BadRequestException("Operaçãp inválida.");
         }
         
         if (result.hasErrors())
@@ -287,7 +288,7 @@ public class UserOpenController
         if (principal !=  null)
         {
             log.warn("usuario logado tentando reset senha.");
-            return sendErrorMessage(model, "Operaçãp inválida.");
+            throw new BadRequestException("Operaçãp inválida.");
         }
         
 		try {
@@ -295,10 +296,10 @@ public class UserOpenController
 			return "redirect:/user/open/reset-confirm-resp"; 
 		} 
 		catch (TokenInvalidoException e) {
-			return sendErrorMessage(model, "Token Inválido !");
+			throw new BadRequestException("Token Inválido !");
 		}
 		catch (NotFoundException e) {
-			return sendErrorMessage(model, "Usuário não encontrado.");
+			throw new BadRequestException("Usuário não encontrado.");
 		}
     }   
     
@@ -307,10 +308,4 @@ public class UserOpenController
     {
         return "user/reset-confirm-resp";
     }    
-    
-    private String sendErrorMessage(Model model, String message)
-    {
-        model.addAttribute("errorMessage", message);
-        return "error";  
-    }
 }

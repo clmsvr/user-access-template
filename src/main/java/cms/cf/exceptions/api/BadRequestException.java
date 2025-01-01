@@ -1,4 +1,4 @@
-package cms.cf.exceptions;
+package cms.cf.exceptions.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
