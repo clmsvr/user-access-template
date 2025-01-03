@@ -48,13 +48,13 @@
                                  <li><a th:href="@{/user/mng/account}">Minha Conta</a></li>
                                  <li class="divider"></li>
                                  <li><a th:href="@{/user/mng/change-pwd}">Alterar Senha</a></li>
-                                 <li><a th:href="@{/initlogout}">Sair</a></li>
+                                 <li><a th:href="@{/logout}">Sair</a></li>
                              </ul>                       
                          </li>
                      </ul>
                              
                      <div  sec:authorize="isAuthenticated() == false" >
-                        <a th:href="@{/initlogin}"><b class="glyphicon glyphicon-user"></b> Login</a>
+                        <a th:href="@{/login}"><b class="glyphicon glyphicon-user"></b> Login</a>
                         <a th:href="@{/user/open/register}">Cadastrar-se</a>
                      </div>             
                      

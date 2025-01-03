@@ -20,18 +20,6 @@ public class HomeController
 {
 	@Autowired
 	private UserRepository userRep;
-	
-   
-    /**
-     * inicia a acao de logout.
-     * O path "/logout" é configurado no Spring em "SecurityConfig".
-     * O spring implementa a acao de "/logout" e redireciona para o path configurado: "/"
-     */
-    @GetMapping({"/initlogout"})
-    public String initlogout() 
-    {
-        return "redirect:/logout"; //está configurado no "SecurityConfig"
-    }  
     
     /**
      * O path "/login" é configurado no Spring em "SecurityConfig".
@@ -45,17 +33,17 @@ public class HomeController
     {
     	return "login";
     }
-    
+
     /**
-     * "initlogin" está protegico e o spring vai iniciar o processo de login
-     * "/initlogin" poderia estar junto de root (""), mas no final a url no browser 
-     * teria o path "/initlogin" e fica feio. 
+     * URL configurada em "SecurityConfig.class" como a url redirecionada pelo Spring
+     * em caso de sucesso no processo de login
+     * @return
      */
-    @GetMapping({"/initlogin"})
-    public String initlogin() 
-    {
-        return "redirect:/"; 
-    }  
+	@GetMapping("/successLogin")
+	public String successLogin() {
+		//poderia verificar as roles e redirecionar para a pagina correta.
+		return "redirect:/";
+	}
     
     //public String root(Model model, HttpServletRequest request)
     //public String root(Model model, @Authentication Principal User user) //this will work even in WebFlux reactive environment versus the SecurityContextHolder.getContext().getAuthentication() which won't work because of paradigm shift from thread per request model to multiple requests per thread.
