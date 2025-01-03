@@ -36,7 +36,8 @@ public class HomeController
 
     /**
      * URL configurada em "SecurityConfig.class" como a url redirecionada pelo Spring
-     * em caso de sucesso no processo de login
+     * em caso de sucesso no processo de login.
+     * Default seria "/", mas assim nos dá o controle dinâmico do processo.
      * @return
      */
 	@GetMapping("/successLogin")
