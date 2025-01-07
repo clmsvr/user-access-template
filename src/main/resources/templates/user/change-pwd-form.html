@@ -44,7 +44,12 @@
                    <p th:if="${#fields.hasErrors('newpwd2')}" th:errorclass="form-error" th:errors="*{newpwd2}" />
                 </div>
             </p>     
-                           
+            <p>
+                <!-- outros erros nao associados a um campo especifico. Ex: validacao de senhas iguais-->
+                <div class="labelBefore">
+                   <p th:if="${#fields.hasErrors('global')}" th:errorclass="form-error" th:errors="*{global}" />
+                </div>
+            </p>                                
             <br>
             <input type="submit"   value="Alterar" />                                 
         </form>

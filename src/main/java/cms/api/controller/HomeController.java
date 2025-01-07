@@ -34,17 +34,17 @@ public class HomeController
     	return "login";
     }
 
-    /**
-     * URL configurada em "SecurityConfig.class" como a url redirecionada pelo Spring
-     * em caso de sucesso no processo de login.
-     * Default seria "/", mas assim nos dá o controle dinâmico do processo.
-     * @return
-     */
-	@GetMapping("/successLogin")
-	public String successLogin() {
-		//poderia verificar as roles e redirecionar para a pagina correta.
-		return "redirect:/";
-	}
+//    /**
+//     * URL configurada em "SecurityConfig.class" como a url redirecionada pelo Spring
+//     * em caso de sucesso no processo de login.
+//     * Default seria "/", mas assim nos dá o controle dinâmico do processo.
+//     * @return
+//     */
+//	@GetMapping("/successLogin")
+//	public String successLogin() {
+//		//poderia verificar as roles e redirecionar para a pagina correta.
+//		return "redirect:/";
+//	}
     
     //public String root(Model model, HttpServletRequest request)
     //public String root(Model model, @Authentication Principal User user) //this will work even in WebFlux reactive environment versus the SecurityContextHolder.getContext().getAuthentication() which won't work because of paradigm shift from thread per request model to multiple requests per thread.

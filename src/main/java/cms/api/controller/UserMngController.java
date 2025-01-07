@@ -26,6 +26,7 @@ import cms.domain.exceptions.PasswordInvalidoException;
 import cms.domain.model.User;
 import cms.domain.repository.UserRepository;
 import cms.domain.service.UserMngService;
+import cms.lib.ValidaSenhasIguais;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -157,10 +158,12 @@ public class UserMngController
             return "user/change-pwd-form";
         }
         
+        //Com a anotação "@ValidaSenhasIguais" no Bean, nao precisa deste teste.
         if (pwd.getNewpwd1().equals(pwd.getNewpwd2()) == false)
         {
             pwd.reset();
-            result.rejectValue("newpwd2", "newpwd2", "Senhas não conferem."); 
+            //result.rejectValue("newpwd2", "newpwd2", "Senhas não conferem."); 
+            result.reject("senhas-diff", "Senhas não conferem."); 
             return "user/change-pwd-form";
         }
         

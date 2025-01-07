@@ -1,9 +1,11 @@
 package cms.api.model;
 
+import cms.lib.ValidaSenhasIguais;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import jakarta.validation.constraints.NotEmpty;
 
+@ValidaSenhasIguais(senha1Field = "newpwd1", senha2Field = "newpwd2")
 public class PwdChange
 {
     @NotEmpty(message="É necessário digirar sua senha.") 

@@ -32,7 +32,7 @@ public class SecurityConfig {
 			.formLogin((form) -> 
 			    form
 					.loginPage("/login")
-					.defaultSuccessUrl("/successLogin", true) //"true" força o redirecionamento para a url indicada. Caso contrario, iria para a url protegida clicada pelo usuario.
+					//.defaultSuccessUrl("/successLogin", true) //"true" força o redirecionamento para a url indicada. Caso contrario, iria para a url protegida clicada pelo usuario.
 					.permitAll()
 			)
 			.logout((logout) -> 
