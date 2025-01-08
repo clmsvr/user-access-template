@@ -14,8 +14,8 @@ Recursos usados:
 * [Validation](https://docs.spring.io/spring-boot/3.4.0/reference/io/validation.html)
 * [MySQL](https://www.mysql.com/)
 * [Lombok](https://projectlombok.org/)
-* javax.mail (com.sun.mail)
-
+* [Jakarta Mail Api](https://jakarta.ee/specifications/mail/)
+* [commons-codec](https://commons.apache.org/proper/commons-codec/)
 
 ### Funções
 * Controle de acesso.

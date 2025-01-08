@@ -2,18 +2,18 @@ package cms.lib.components;
 
 import java.util.Properties;
 
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cms.domain.exceptions.SendEmailException;
 import cms.lib.ConfigHelper;
+import jakarta.mail.Authenticator;
+import jakarta.mail.Message;
+import jakarta.mail.PasswordAuthentication;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 
 @Component
 public class MailTool {
@@ -57,7 +57,7 @@ public class MailTool {
         //https://stackoverflow.com/questions/4184204/what-is-the-difference-between-getdefaultinstance-and-getinstance-in-session
         //https://stackoverflow.com/questions/11566772/java-mail-api-exception-thrown-saying-java-lang-securityexception-access-to-d        
         //eu estava usando getDefaultInstance()  e tendo muitas falhas ao enviar email.
-        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+        Session session = Session.getInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication()
             {
                 return new PasswordAuthentication(props.getSender(),pwd);
@@ -74,7 +74,7 @@ public class MailTool {
 			message.setFrom(new InternetAddress(props.getSender())); 
 
 			//Destinatário(s)
-			//Address[] toUser = InternetAddress.parse("sudenio@yahoo.com, cl.silveira@gmail.com");
+			//Address[] toUser = InternetAddress.parse("x@yahoo.com, y@gmail.com");
 			//message.setRecipients(Message.RecipientType.TO, toUser);
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipentEmail));
 			message.setSubject(subject);
@@ -83,7 +83,7 @@ public class MailTool {
 			Transport.send(message);
 //ou
 //        Transport transport = session.getTransport("smtp");
-//        transport.connect("smtp.gmail.com", "cl.silveira@gmail.com", "eceJ2740&*");
+//        transport.connect("smtp.gmail.com", "email", "senha");
 //        transport.sendMessage(message, message.getAllRecipients());
 //        transport.close();            
 		} catch (Exception e) {
