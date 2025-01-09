@@ -28,6 +28,8 @@ Recursos usados:
 * Configure o arquivo "application.properties"
 * Instancie um servidor MySQL (a base de dados será gerada ao instanciar a aplicação).
 * Configure as propriedades: "spring.datasource.*"
-* [Configure uma conta para envio de email](https://support.google.com/accounts/answer/185833?hl=pt-BR)
-* Configure as propriedades: "mail.sender" e "mail.password"
+* Email:
+* [Configure uma conta para envio de email no Gmail](https://support.google.com/accounts/answer/185833?hl=pt-BR)
+* [Outra Possibilidade é uma conta gratuita no SendGrid (mas desligue o "Click Tracking")](https://sendgrid.com/)
+* Configure as propriedades: "mail.sender", "mail.user-id", "mail.password", "mail.smtp-host" e "mail.smtp-port"
 

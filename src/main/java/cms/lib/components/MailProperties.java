@@ -20,6 +20,9 @@ public class MailProperties {
 	private String sender;
 	
 	@NotBlank
+	private String userId;
+	
+	@NotBlank
 	private String password;
 	
 	@NotBlank

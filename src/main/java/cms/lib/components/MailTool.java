@@ -60,7 +60,7 @@ public class MailTool {
         Session session = Session.getInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication()
             {
-                return new PasswordAuthentication(props.getSender(),pwd);
+                return new PasswordAuthentication(props.getUserId(),pwd);
             }
         });
 
