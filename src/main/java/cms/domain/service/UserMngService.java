@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import cms.api.model.PwdChange;
 import cms.api.model.PwdReset;
-import cms.api.model.UserModel;
+import cms.api.model.UserApi;
 import cms.api.model.UserRegister;
 import cms.domain.exceptions.AlreadyExistException;
 import cms.domain.exceptions.EmailInvalidoException;
@@ -279,7 +279,7 @@ public class UserMngService
         userRep.flush();
 	}
 
-	public void updateUser(@Valid UserModel userModel, String email) {
+	public void updateUser(@Valid UserApi userModel, String email) {
 
         User userdb = userRep.findByEmail(email);
         //User userdb = userRep.getByEmail(userModel.getEmail()); //brecha de seguranca

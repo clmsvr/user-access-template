@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserModel
+public class UserApi
 {
     @NotEmpty (message="É necessário digirar seu email.") 
     @Pattern(regexp = "[\\w\\-]+(\\.[\\w\\-]+)*@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}", message="O formato do email parece ser inválido.")

@@ -18,7 +18,7 @@ import cms.api.exceptions.InternalErrorException;
 import cms.api.model.Email;
 import cms.api.model.PwdReset;
 import cms.api.model.UserRegister;
-import cms.api.model.UserTempModel;
+import cms.api.model.UserTempApi;
 import cms.domain.exceptions.AlreadyExistException;
 import cms.domain.exceptions.EmailInvalidoException;
 import cms.domain.exceptions.NotFoundException;
@@ -135,7 +135,7 @@ public class UserOpenController
         }
         
 		//sem dados pois precisa confirma-los
-        UserTempModel utm = new UserTempModel();
+        UserTempApi utm = new UserTempApi();
         utm.setToken(token);
         
         model.addAttribute("user", utm);
@@ -147,7 +147,7 @@ public class UserOpenController
      */
     @PostMapping({"/confirm"})
     @Transactional
-    public String confirmPost(@ModelAttribute("user") UserTempModel user, 
+    public String confirmPost(@ModelAttribute("user") UserTempApi user, 
     		BindingResult result, Model model, Principal principal,
     		HttpServletRequest request) 
     {

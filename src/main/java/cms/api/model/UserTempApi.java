@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserTempModel
+public class UserTempApi
 {
     @NotEmpty
     @NotNull
@@ -29,11 +29,11 @@ public class UserTempModel
     @Size(max=50)
     private String pwd;
     
-    public UserTempModel()
+    public UserTempApi()
     {
     }
 
-    public UserTempModel(UserModel u, String pwd, String token)
+    public UserTempApi(UserApi u, String pwd, String token)
     {
         this.email = u.getEmail();
         this.pwd = pwd;

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import cms.api.exceptions.BadRequestException;
 import cms.api.model.PwdChange;
-import cms.api.model.UserModel;
+import cms.api.model.UserApi;
 import cms.domain.exceptions.NotFoundException;
 import cms.domain.exceptions.PasswordInvalidoException;
 import cms.domain.model.User;
@@ -95,7 +95,7 @@ public class UserMngController
         //aqui o username é o email.
         User user = userRep.findByEmail(email);
         
-        UserModel userModel = new UserModel();
+        UserApi userModel = new UserApi();
         modelMapper.map(user, userModel);
         
         //userModel.setPwd(""); //nao tem senha nessa view
@@ -108,7 +108,7 @@ public class UserMngController
     @Transactional
     public String accountPost(
     		Model model, 
-    		@Valid @ModelAttribute("user") UserModel userModel, 
+    		@Valid @ModelAttribute("user") UserApi userModel, 
     		BindingResult result, 
     		Principal p) 
     {
