@@ -1,5 +1,5 @@
 /**************************************************
-Funcionalidades da Aplica��o
+Funcionalidades da Aplicacao
 ***************************************************/
 .center-form{
 	margin: auto;
@@ -67,159 +67,10 @@ ul.f-menu-horizontallll li {
     list-style: none; 
     z-index: 99;
 }
-/**************** SUbtitle Tool *******************/
-.container-fix {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 970px;
-}
-.tool-container{
-    width: 940px;
-}
-.tool-container h1{
-    font-size: 18px;
-    font-weight: 500;
-}
-#player{ 
-    width: 500px; 
-    height: 350px;
-    float:left;    
-}
-#player > button.ytp-subtitles-button {
-    display: none !important;
-}
-#player-captions-window {
-    pointer-events: none;
-    z-index: 300000;
-    position: absolute;
-    top: 410px;
-    rrright: 0px;
-    width: 500px;
-    max-height: 80%;
-    overflow: hidden;
-    text-align: center;
-}
-#player-captions-text {
-    color: #fff;
-    padding: 4px;
-    background: #000;
-    opacity: .8;
-    font-size: 18px;
-    line-height: 24px;
-    white-space: pre-wrap;
-    display: none;
-}
-.subtitile-warning{
-	clear: left;
-    float: left;
-    margin-top: 15px;
-    font-size: 13px;
-    opacity: .4;
-}
-#subtitile-warning-time{
-	opacity: initial;
-	font-weight: bold;
-}
-#subtitle{
-    width: 410px;
-    height: 425px;
-    display: inline-block;
-    margin: 0 0 0 20px;
-    overflow: auto;
-}
-#subtitle::-webkit-scrollbar { width:4px; background:transparent; } /* configurando scroll */
-#subtitle::-webkit-scrollbar-track { background: transparent; }
-#subtitle::-webkit-scrollbar-thumb { border-radius:4px; background: #cfe7e7; /*#a3d1d1;*/  }
-
-.subtitle-line{
-    float: left;
-    width: 100%;
-	display: inline-block;
-	padding-top: 2px;
-	margin: 0;
-    padding: 0;
-    font-size: 100%;
-    background: transparent;
-    border: 0;
-    border-top: 1px solid #f0f0f0;
-}
-.subtitle-line-focused {
-    background-color: #def;
-}
-.subtitle-line-edited {
-    background-color: #def;
-}
-.subtitle-line:hover {
-    background-color: #f8f8f8;
-}
-.subtitle-line-highlight {
-    border-left: 2px solid #cc181e;
-}
-
-.subtitle-time{
-	float: left;
-    width: 63px;
-    overflow: hidden;
-    font-size: 20%;	
-    margin: 5px 0 0 6px;
-    padding: 0;
-    border: 0;    
-    background: transparent;
-}
-.subtitle-time span{
-	width: 55px;
-	height: 16px;
-    margin: 0;
-    padding: 1px 4px;
-    background: transparent;
-    opacity: .4;
-    border: none;
-    line-height: 16px;
-    font-size: 13px;
-    overflow: hidden;
-} 
-.subtitle-time .line-count{
-	display: block;
-	margin-top: 3px;
-}
-.subtitle-text{
-	display: inline-block;
-}
-.subtitle-text textarea{
-	resize: none;
-	font-size: 13px;
-    width: 290px;
-    line-height: 16px;
-    margin: 1px 0 1px;
-    padding: 4px;
-    height: 58px;
-    overflow: auto;
-    display: block;
-	border: none;
-    box-shadow: none;
-    background-color: transparent;
-}
-.subtitle-text textarea:hover {
-    background-color: transparent;
-} 
-.subtitle-text textarea:focus {
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-} 
-.subtitle-text .subtitle-edit{
-	background-color: white !important;
-	border: 1px solid #f0f0f0 !important;
-}
-/* fim  Subtitle Tool  */ 
-
-
 
 
 /**************************************************
-    Estrutura da Aplica��o
+    Estrutura da Aplicacao
 ***************************************************/
 
 /* Sticky Footer */
@@ -247,7 +98,7 @@ body {
 
 
 /****************************************
- Customiza��o Geral para Links
+ Customizacao Geral para Links
  ****************************************/
 
 a img {border:none;}
@@ -255,28 +106,6 @@ a:focus, a:hover {color:#0000FF;}
 a {color:#06c;text-decoration:underline;} /*#06c*/
 
 
-/**********  Header Modelo 2 ************** 
-Header com fundo, logo, appname, version, username, data.
-Estrutura:
-   <header>
-       <div class="f-header-wrap" >
-       
-                <div class="f-header-right  hidden-xs"> 
-                    <b class="glyphicon glyphicon-user"></b>
-                    <span>Admin</span>
-                    <span class="f-header-data">01 Janeiro 2014</span>   
-                </div>
-                
-                <div class="f-header-logo" >
-                    <div class="f-title-appname">
-                       <span>Aplication ID <b>Name</b></span>
-                       <span class="f-title-version hidden-xs">1.0.0 </span>    
-                    </div>
-                </div>          
-       </div>
-       #####  MENU  #####
-   </header>   
-**********************************************/
 header{
 	border-bottom: 1px solid #EBEBEB; 
 	/*margin-top: 5px;*/
@@ -318,62 +147,6 @@ header{
 /* fim menu 2 */
 
 
-/*****************************************************
-Menu Personalizado Responsivo
-******************************************************/
-/*Definir a fonte do Menu*/
-/*Navbar - tamanho*/
-.navbar {
-    min-height:30px !important;
-    margin-bottom: 0;
-}
-/*Navbar - borda*/
-.nav, .navbar-nav, .navbar-default, .navbar{
-    border: none; /*1px solid black;*/
-    box-shadow: none;
-}
-/*Navbar - recuo do menu p/ esqueda*/
-.collapse {
-    padding-left: 0;
-}
-/*Navbar - estilo */
-.navbar-default{
-  background-image: none;
-  background-color: #ffffff;
-}
-.navbar-nav > li > a {
-    padding-top:5px !important; 
-    padding-bottom:5px !important;
-    text-decoration: none;
-}
-.navbar-default .navbar-nav > li > a{
-  font-weight: bold;
-  font-size:11px;
-  color:#286EA0 ;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    background-color: #F5F5F5;
-    color:#043454;
-}
-.navbar-default .navbar-nav > .open > a, 
-.navbar-default .navbar-nav > .open > a:hover, 
-.navbar-default .navbar-nav > .open > a:focus {
-    color: #043454;
-    background-color: #F5F5F5;
-}
-.dropdown-menu > li > a {
-  color:#286EA0 ; 
-  font-weight: bold;
-  font-size:11px;
-  text-decoration: none;
-}
-@media (min-width: 768px) { /*somente a partir desta resolu��o o  menu EXTENDIDO � exibido */
-    /*abrir drop down menu "on hover" */
-    ul.nav li.dropdown:hover > ul.dropdown-menu {
-        display: block;    
-    }  
-}
 
 
 /* ============================================= */ 
@@ -479,97 +252,6 @@ ul.f-menu-horizontal li:hover ul li:hover ul{
 	top:0;
 }
 
-
-/* ============================================= */ 
-/*              MENU VERTICAL CSS                */
-/* obs: elementos com classe ".hover" s�o usados */
-/*      p/ correcao do IE6                       */
-/* ============================================= */
-
-ul.f-menu-vertical {
-  
-   font-size:11px;
-   list-style: none;
-
-   width:147px; 
-   margin: 4px 0 0 0px; 
-   padding: 0;
-   background-color: #fff; 
-   border: 1px solid #D9D9D9;
-}
-
-/* dropdown de Primeiro nivel*/
-ul.f-menu-vertical li { 
-   width:147px;
-   list-style: none;   
-   position:relative; 
-   /*float:left; --> hack separado para IE: corrigir defeito no mouse hover sobre as listas*/
-   padding:0; 
-   margin:0;
-   background: url("../images/dot.gif") repeat-x bottom;
-}
-
-/* dropdown de Primeiro nivel*/
-
-ul.f-menu-vertical li.last{
-   background: none;
-}
-
-/* items do menu principal */
-ul.f-menu-vertical a {
-
-   text-decoration:none;
-   font-weight:bold;
-   border-bottom: 0; 
-   font-size:11px; 
-   overflow:hidden;
-   
-   display:block;
-   color:#286EA0;
-   line-height: 26px;
-   text-align: left;
-   margin: 0;
-   padding: 0 0 0 6px;
-   width: 141px;
-}
-
-ul.f-menu-vertical a:hover{color:#fff; background-color: #40799F;}
-
-ul.f-menu-vertical li ul { display: none;}
-
-ul.f-menu-vertical li:hover ul,
-ul.f-menu-vertical li.hover ul {
-   display:block; 
-   position:absolute; 
-   top:0px; 
-   left:147px; 
-   width:147px; 
-   margin: 0; 
-   padding: 0;
-   background-color: #fff; 
-   border: 1px solid #D9D9D9;
-}
-
-/* dropdown properties */
-ul.f-menu-vertical li:hover ul li a,
-ul.f-menu-vertical li.hover ul li a{
-   font-weight: normal;
-}
-
-ul.f-menu-vertical li.hover ul li a{ /*so para ie !!!*/
-    width: 147px;
-}
-
-/* dropdown de Segundo nivel*/
-ul.f-menu-vertical li ul li ul {display: none;}
-
-ul.f-menu-vertical li:hover ul li ul,
-ul.f-menu-vertical li.hover ul li ul{display: none;}  /* dropdown de Segundo nivel*/
-
-ul.f-menu-vertical li:hover ul li:hover ul,
-ul.f-menu-vertical li.hover ul li.hover ul{
-    display:block; position:absolute; left:147px; top:0;
-}
 
 
 /**************************************************
@@ -775,68 +457,6 @@ ul.f-menu-vertical li.hover ul li.hover ul{
 div.ui-datepicker{font-size:11px;}
 div.ui-datepicker thead th {background:#c3d9ff;}
 
-
-
-
-/********************************************
-  TABELAS
-*********************************************/    
-
-/*Bootstrap - personaliza��o do header */
-.table {
-    font-family: Verdana;
-    color: #666666;
-    font-size: 12px;    
-}
-.table th {
-    font-weight:bold; 
-    background-color: #A1CCDD;
-    text-align: center;
-}
-/* fim customiza��o bootstrap */
-
-
-/* Tabela simples Zebrada */  
-.tbzebra {
-    font-family: Verdana;
-}  
-.tbzebra tbody tr:nth-child(even) , .tbzebra tbody tr.even  {background:#e5ecf9;}
-.tbzebra th {font-weight:bold; background-color: #A1CCDD; border: 1px solid #C0C0C0;}
-.tbzebra td {border: 1px solid #C0C0C0;}
-.tbzebra thead th {background:#c3d9ff;}
-.tbzebra th, td {padding:4px 10px 4px 5px;}
-.tbzebra {
-    border-collapse: collapse;
-    color: #666666;
-    font-size: 12px;    
-    margin-bottom:1.4em;
-    width:100%;
-}
-/* Tabela Simples N�O zebrada*/   
-.tbsimple {
-    font-family: Verdana;
-}   
-.tbsimple th {background-color: #A1CCDD; border: 1px solid #C0C0C0;}
-.tbsimple td {border: 1px solid #C0C0C0; padding:0px 2px 0px 2px;}
-.tbsimple thead th {background:#c3d9ff;}
-.tbsimple th, td {padding:4px 10px 4px 5px;}
-.tbsimple .bloq {background-color: #AECBFF;}
-.tbsimple .debito {color: #A94D3F; font: bolder; background-color: #FED8DF;}
-.tbsimple .credito {}
-.tbsimple .saldo {background-color: #D6F3DA;}
-.tbsimple .verde {color: #006600;  background-color: #0EF59E;}
-.tbsimple .amarelo {color: #886D04;  background-color: #FFFF9F;}
-.tbsimple .laranja {color: #8A4500;  background-color: #FFBA75;}
-.tbsimple .vermelho {color: #A94D3F; background-color: #FED8DF;}
-.tbsimple {
-    border-collapse: collapse;
-    color: #666666;
-    font-size: 12px;    
-    margin-bottom:1.4em;
-    width:100%;
-}
-
-/********** fim TABELAS *****************/
 
 
 
