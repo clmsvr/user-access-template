@@ -1,16 +1,44 @@
 /**************************************************
+    Estrutura da Aplicacao
+***************************************************/
+
+/* Sticky Footer */
+html {
+  position: relative;
+  min-height: 100%;  
+}
+body {
+  margin-bottom: 25px; /* Margin bottom by footer height */
+  font-family: roboto, verdana, sans-serif;
+  font-size: 12px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  
+  width: 100%;
+  height: 25px; /* Set the fixed height of the footer here */
+  text-align: center;
+  vertical-align: middle;
+  border-top: #EBEBEB 1px solid;
+  color: #999;
+  font-size: 11px;  
+}
+
+
+
+
+/**************************************************
 Funcionalidades da Aplicacao
 ***************************************************/
 .center-form{
 	margin: auto;
 	width: 350px;
-	bbborder: 1px solid gray;
 }
 
 .center-form-account{
     margin: auto;
     width: 500px;
-    bbborder: 1px solid gray;
 }
 
 .home-form{
@@ -69,32 +97,6 @@ ul.f-menu-horizontallll li {
 }
 
 
-/**************************************************
-    Estrutura da Aplicacao
-***************************************************/
-
-/* Sticky Footer */
-html {
-  position: relative;
-  min-height: 100%;  
-}
-body {
-  margin-bottom: 25px; /* Margin bottom by footer height */
-  font-family: roboto, verdana, sans-serif;
-  font-size: 12px;
-}
-#footer {
-  position: absolute;
-  bottom: 0;
-  
-  width: 100%;
-  height: 25px; /* Set the fixed height of the footer here */
-  text-align: center;
-  vertical-align: middle;
-  border-top: #EBEBEB 1px solid;
-  color: #999;
-  font-size: 11px;  
-}
 
 
 /****************************************
@@ -144,7 +146,6 @@ header{
     font-size: 12px;
     opacity: .5;
 }
-/* fim menu 2 */
 
 
 
@@ -451,12 +452,6 @@ ul.f-menu-horizontal li:hover ul li:hover ul{
 	margin: 0;
 	padding: 0;
 }
-
-/*JQuery UI*/
-/*controlar tamanho do datepitcher*/
-div.ui-datepicker{font-size:11px;}
-div.ui-datepicker thead th {background:#c3d9ff;}
-
 
 
 
