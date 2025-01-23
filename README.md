@@ -10,7 +10,7 @@ Recursos usados:
 * [Spring Security](https://docs.spring.io/spring-boot/3.4.0/reference/web/spring-security.html)
 * [Thymeleaf](https://docs.spring.io/spring-boot/3.4.0/reference/web/servlet.html#web.servlet.spring-mvc.template-engines)
 * [Herança de Templates - Thymeleaf](https://www.treinaweb.com.br/blog/thymeleaf-heranca-de-templates)
-* [Flyway Migration](https://docs.spring.io/spring-boot/3.4.0/how-to/data-initialization.html#howto.data-initialization.migration-tool.flyway)
+* [Database Initialization](https://docs.spring.io/spring-boot/how-to/data-initialization.html)
 * [Validation](https://docs.spring.io/spring-boot/3.4.0/reference/io/validation.html)
 * [MySQL](https://www.mysql.com/)
 * [Lombok](https://projectlombok.org/)
