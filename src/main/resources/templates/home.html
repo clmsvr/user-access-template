@@ -18,8 +18,8 @@
       https://docs.spring.io/spring-security/site/docs/4.2.x/apidocs/org/springframework/security/access/expression/SecurityExpressionOperations.html
       https://www.baeldung.com/spring-security-expressions
        -->             
-    <div sec:authorize="hasAnyRole('Worker', 'Admin')" th:remove="tag"  > 
-       <h3>Recursos privados do usuário <mark>COM</mark> 'Role' específica.</h3>      
+    <div sec:authorize="hasAnyRole('Admin')" th:remove="tag"  > 
+       <h3>Recursos privados do usuário <mark>COM</mark> 'Role' específica.(Ex: 'Admin')</h3>      
     </div>
         
     <br/>

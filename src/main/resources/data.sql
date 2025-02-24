@@ -7,9 +7,7 @@ VALUES
 
 insert into Role (id, name, description) 
 values 
-(1, 'Admin', 'Promove novos usuaros e aloca blocos de trabalho'), 
-(2, 'Worker', 'Trabalha nos blocos alocados'), 
-(3, 'Novo', 'Soh pode fazer login e editar dados pessoais.');
+(1, 'Admin', 'Promove novos usuaros e aloca blocos de trabalho');
 
 
 insert into Permission (id, name, description) values 
@@ -20,15 +18,12 @@ insert into Permission (id, name, description) values
 
 
 INSERT INTO User_has_role(User_id,role_id) values
-(1,1),
-(2,2);
+(1,1);
 
 INSERT INTO role_has_Permission(role_id,Permission_id) values
 (1,1),
 (1,2),
 (1,3),
-(1,4),
-(2,1),
-(2,2);
+(1,4);
 
 

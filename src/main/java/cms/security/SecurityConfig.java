@@ -20,8 +20,7 @@ public class SecurityConfig {
 				requests
 					.requestMatchers("/","/user/open/*","/bootstrap/**","/css/**","/fonts/**","/image/**","/js/**")
 					.permitAll()
-					.requestMatchers("/user/mng/*").hasAnyRole("Admin","Worker","login")
-					.requestMatchers("/worker/*").hasAnyRole("Admin","Worker")
+					.requestMatchers("/user/mng/*").authenticated()
 					.requestMatchers("/admin/*").hasRole("Admin")
 					.anyRequest().authenticated()
 			)
