@@ -52,8 +52,6 @@ public class HomeController
     //public String root(Model model, Principal  p)
     //
     
-    //@GetMapping({ "" })
-    //@GetMapping("")
     @GetMapping
     public String root(Model model, Principal p, HttpServletRequest request) 
     {
