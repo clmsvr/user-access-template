@@ -66,7 +66,7 @@ public class ErrorController {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String badRequessst(final InternalErrorException e, final Model model) 
     {
-    	log.error(e.toString());
+    	log.error(e.toString(),e);
         model.addAttribute("errorMessage", "Desculpe! Ocorreu uma falha inesperada: "+e.getMessage());
         
         return "error";

@@ -111,9 +111,6 @@ public class UserMngService
         newUser.setPwd(stored.getPwd());
         newUser.setName(stored.getName());
 
-        Role role = roleRep.findByName("Worker");
-        newUser.getRoles().add(role);
-
         userRep.save(newUser);
         userRep.flush();
         userTempRep.deleteById(token);
