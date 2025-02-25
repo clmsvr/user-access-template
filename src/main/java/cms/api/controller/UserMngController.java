@@ -74,15 +74,6 @@ public class UserMngController
         states.put("TO","Tocantins");
     }
 
-    @InitBinder
-    public void initBinder(WebDataBinder webDataBinder)
-    {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        dateFormat.setLenient(false);
-        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-    }
-    
-    
     @GetMapping({"/account"})
     public String account(Model model, Principal principal) 
     {

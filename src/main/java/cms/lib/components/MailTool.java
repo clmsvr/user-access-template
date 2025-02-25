@@ -1,12 +1,12 @@
 package cms.lib.components;
 
+import java.util.Base64;
 import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cms.domain.exceptions.SendEmailException;
-import cms.lib.ConfigHelper;
 import jakarta.mail.Authenticator;
 import jakarta.mail.Message;
 import jakarta.mail.PasswordAuthentication;
@@ -32,7 +32,7 @@ public class MailTool {
     	// como preparar a conta do google para enviar email
     	//https://support.google.com/accounts/answer/185833?hl=pt-BR
     	
-        String pwd = ConfigHelper.decode64(props.getPassword());
+        String pwd = new String(Base64.getDecoder().decode(props.getPassword()));
         
         if (props.getSender() == null || pwd == null) 
         	throw new SendEmailException("Erro lendo credenciais para enviar EMAILs"); 

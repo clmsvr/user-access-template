@@ -46,7 +46,7 @@ public class MyUserDetailsService implements UserDetailsService {
 		List<Role> roles = u.getRoles();
 
 		Collection<GrantedAuthority> authorities =  roles.stream()
-				.map(r -> new SimpleGrantedAuthority(SecurityTool.ROLE_PREFIX+r.getName()))
+				.map(r -> new SimpleGrantedAuthority("ROLE_"+r.getName()))
 				.collect(Collectors.toSet());
 		
 		for (Role role : roles) {
