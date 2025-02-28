@@ -1,4 +1,4 @@
-package cms.api.model;
+package cms.web.model;
 
 import cms.lib.ValidaSenhasIguais;
 import jakarta.validation.constraints.NotEmpty;

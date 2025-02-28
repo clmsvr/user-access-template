@@ -1,4 +1,4 @@
-package cms.api.controller;
+package cms.web.controller;
 
 import java.security.Principal;
 

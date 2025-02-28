@@ -1,4 +1,4 @@
-package cms.api.model;
+package cms.web.model;
 
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;

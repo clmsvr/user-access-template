@@ -1,4 +1,4 @@
-package cms.api.controller;
+package cms.web.controller;
 
 import java.security.Principal;
 import java.util.HashMap;
@@ -13,12 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cms.api.exceptions.BadRequestException;
-import cms.api.exceptions.InternalErrorException;
-import cms.api.model.Email;
-import cms.api.model.PwdReset;
-import cms.api.model.UserRegister;
-import cms.api.model.UserTempApi;
 import cms.domain.exceptions.AlreadyExistException;
 import cms.domain.exceptions.EmailInvalidoException;
 import cms.domain.exceptions.NotFoundException;
@@ -30,6 +24,12 @@ import cms.domain.model.User;
 import cms.domain.repository.UserRepository;
 import cms.domain.repository.UserTempRepository;
 import cms.domain.service.UserMngService;
+import cms.web.exceptions.BadRequestException;
+import cms.web.exceptions.InternalErrorException;
+import cms.web.model.Email;
+import cms.web.model.PwdReset;
+import cms.web.model.UserRegister;
+import cms.web.model.UserTempApi;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

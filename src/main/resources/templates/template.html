@@ -48,6 +48,9 @@
                                  <li><a th:href="@{/user/mng/account}">Minha Conta</a></li>
                                  <li class="divider"></li>
                                  <li><a th:href="@{/user/mng/change-pwd}">Alterar Senha</a></li>
+                                 <div sec:authorize="hasRole('Admin')" th:remove="tag"  > 
+                                    <li><a th:href="@{/admin}">Administrador</a></li>     
+                                 </div>                                 
                                  <li><a th:href="@{/logout}">Sair</a></li>
                              </ul>                       
                          </li>

@@ -1,4 +1,4 @@
-package cms.api.exceptions;
+package cms.web.exceptions;
 
 @SuppressWarnings("serial")
 //@ResponseStatus(value=HttpStatus.BAD_REQUEST)

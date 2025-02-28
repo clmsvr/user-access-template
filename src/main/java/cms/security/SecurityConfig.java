@@ -21,11 +21,10 @@ public class SecurityConfig {
 					.requestMatchers("/","/user/open/*","/bootstrap/**","/css/**","/fonts/**","/image/**","/js/**")
 					.permitAll()
 					.requestMatchers("/user/mng/*").authenticated()
-					.requestMatchers("/admin/*").hasRole("Admin")
+					.requestMatchers("/admin/**").hasRole("Admin") //com "/admin/*" '/admin' NAO estará incluso, somente paths abaixo.
 					.anyRequest().authenticated()
 			)
-			.formLogin((form) -> 
-			    form
+			.formLogin((form) -> form
 					.loginPage("/login")
 					//.defaultSuccessUrl("/successLogin", true) //"true" força o redirecionamento para a url indicada. Caso contrario, iria para a url protegida clicada pelo usuario.
 					.permitAll()
@@ -35,7 +34,8 @@ public class SecurityConfig {
 				    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				    .logoutSuccessUrl("/")
 					.permitAll()
-			);
+			)
+			;
 		return http.build();
 	}
 

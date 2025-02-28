@@ -1,4 +1,4 @@
-package cms.api.model;
+package cms.web.model;
 
 import java.time.LocalDateTime;
 

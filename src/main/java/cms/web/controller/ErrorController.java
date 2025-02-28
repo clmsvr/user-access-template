@@ -1,4 +1,4 @@
-package cms.api.controller;
+package cms.web.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
-import cms.api.exceptions.BadRequestException;
-import cms.api.exceptions.InternalErrorException;
+import cms.web.exceptions.BadRequestException;
+import cms.web.exceptions.InternalErrorException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

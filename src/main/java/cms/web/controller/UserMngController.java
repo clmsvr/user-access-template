@@ -1,4 +1,4 @@
-package cms.api.controller;
+package cms.web.controller;
 
 import java.security.Principal;
 import java.text.SimpleDateFormat;
@@ -18,15 +18,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cms.api.exceptions.BadRequestException;
-import cms.api.model.PwdChange;
-import cms.api.model.UserApi;
 import cms.domain.exceptions.NotFoundException;
 import cms.domain.exceptions.PasswordInvalidoException;
 import cms.domain.model.User;
 import cms.domain.repository.UserRepository;
 import cms.domain.service.UserMngService;
 import cms.lib.ValidaSenhasIguais;
+import cms.web.exceptions.BadRequestException;
+import cms.web.model.PwdChange;
+import cms.web.model.UserApi;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

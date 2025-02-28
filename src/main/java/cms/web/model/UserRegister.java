@@ -1,21 +1,17 @@
-package cms.api.model;
+package cms.web.model;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import jakarta.validation.constraints.NotEmpty;
+
 
 @Getter
 @Setter
-public class UserTempApi
+public class UserRegister
 {
-    @NotEmpty
-    @NotNull
-    @Size(max = 200)
-    private String token;
-    
+    @NotEmpty(message="É necessário digitar seu nome.")
     @Size(max=100)
     private String name;
     
@@ -23,21 +19,9 @@ public class UserTempApi
     @Pattern(regexp = "[\\w\\-]+(\\.[\\w\\-]+)*@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}", message="O formato do email parece ser inválido.")
     @Size(max=100)
     private String email; 
-    
-    @NotEmpty(message="É necessário digirar uma senha.") 
-    @Pattern(regexp = "[^\\s]{6,}", message="A senha deve ter tamanho mínimo 6, sem espaços.")
-    @Size(max=50)
-    private String pwd;
-    
-    public UserTempApi()
-    {
-    }
 
-    public UserTempApi(UserApi u, String pwd, String token)
-    {
-        this.email = u.getEmail();
-        this.pwd = pwd;
-        this.name = u.getName();
-        this.token = token;
-    }
+    @NotEmpty(message="É necessário digirar a nova senha.") 
+    @Pattern(regexp = "[^\\s]{6,}", message="A senha deve ter tamanho mínimo 6, sem espaços.")
+    @Size(max=50)    
+    private String pwd;
 }
