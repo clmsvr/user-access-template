@@ -1,4 +1,4 @@
-package cms.web.controller;
+package cms.web.advice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @ControllerAdvice
-public class ErrorController {
+public class ExceptionHandlerController {
 
 	/**
 	 * Throwable

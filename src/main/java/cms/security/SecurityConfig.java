@@ -18,7 +18,7 @@ public class SecurityConfig {
 		http
 			.authorizeHttpRequests((requests) -> 
 				requests
-					.requestMatchers("/","/user/open/*","/bootstrap/**","/css/**","/fonts/**","/image/**","/js/**")
+					.requestMatchers("/","/error","/user/open/*","/bootstrap/**","/css/**","/fonts/**","/image/**","/js/**")
 					.permitAll()
 					.requestMatchers("/user/mng/*").authenticated()
 					.requestMatchers("/admin/**").hasRole("Admin") //com "/admin/*" '/admin' NAO estará incluso, somente paths abaixo.

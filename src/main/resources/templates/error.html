@@ -9,8 +9,15 @@
 
 <main>  
     <img src="/image/error_icon.png"  alt="Error">   
-    <p  th:text="${errorMessage}" ></p>
-
+    
+    <p>
+    
+    <p  th:if="${errorMessage != null }" th:text="${errorMessage}" ></p>
+    
+    <div  th:if="${errorMessage == null }" >
+        <p th:text="${status} + ' - ' + ${error} + ' - ' + ${message}"> </p>
+    </div>
+    
 </main>
 
 </body>
