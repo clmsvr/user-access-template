@@ -1,6 +1,6 @@
 
 
-### Template para criação de aplicação Web com gerenciamento de usuários.
+### Demonstração de aplicação Web com gerenciamento de usuários.
 
 Recursos usados:
 

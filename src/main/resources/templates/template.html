@@ -8,29 +8,25 @@
 <head>
 
     <title> Template </title>
+    <meta charset="UTF-8">
 
-    <head>
+    <!-- sem cache no browser para as paginas da app  -->
+    <meta http-equiv="Pragma"        content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires"       content="0">
+    <meta name="author"              content="Claudio M. Silveira">
+    <meta name="keywords"            content="">
+    
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQ0lEQVQ4T63TvUoDQRAH8Jm50iKkVQt9Aitb0Vqw9iEyu+AHWghekECwkNu7K4W0YmVjIT5AOpG8gI3YmIuFlZDNXxauSA4TSOK2M/ObYZhlWvLxkvX0/0CWZave+5aIHIxGo5qI9ABcW2vv/pp2YoJQDKDLzPcAHBF9isiO9z4XkY6qtqvIBJAkSSeKor6qno4nllP1oijaVtW38dgEkKZpQURbxpj3aifn3C0zvxpj8qlAkiRDEVkxxvxUgTRN2wC+rbWtWRO8iMhZo9F4Hk8CwHmedwFcGWMepwLOuUMiaorInqp+hMSyOOzEFEWxEcfxcCoQAlmWnXvvT5j5gZn7zLxLROsA1gA0rbXxTKBENgHsA6iFxQ0Gg6d6vX7BzJdVZK5LdM7FJXJsrb0JzeYCQoFz7khEvlS1sxAw8xIX+Zm/m9eUEe4RhNoAAAAASUVORK5CYII=">
+    
+    <!-- ### CSS ### -->
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <!-- app --> 
+    <link  rel="stylesheet"  th:href="@{/fonts/roboto-local.css}" />
+    <link  rel="stylesheet"  th:href="@{/css/template.css}" />
 
-        <meta charset="UTF-8">
-
-        <!-- sem cache no browser para as paginas da app  -->
-        <meta http-equiv="Pragma"        content="no-cache">
-        <meta http-equiv="Cache-control" content="no-cache">
-        <meta http-equiv="Expires"       content="0">
-        <meta name="author"              content="Claudio M. Silveira">
-        <meta name="keywords"            content="">
-        
-        <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQ0lEQVQ4T63TvUoDQRAH8Jm50iKkVQt9Aitb0Vqw9iEyu+AHWghekECwkNu7K4W0YmVjIT5AOpG8gI3YmIuFlZDNXxauSA4TSOK2M/ObYZhlWvLxkvX0/0CWZave+5aIHIxGo5qI9ABcW2vv/pp2YoJQDKDLzPcAHBF9isiO9z4XkY6qtqvIBJAkSSeKor6qno4nllP1oijaVtW38dgEkKZpQURbxpj3aifn3C0zvxpj8qlAkiRDEVkxxvxUgTRN2wC+rbWtWRO8iMhZo9F4Hk8CwHmedwFcGWMepwLOuUMiaorInqp+hMSyOOzEFEWxEcfxcCoQAlmWnXvvT5j5gZn7zLxLROsA1gA0rbXxTKBENgHsA6iFxQ0Gg6d6vX7BzJdVZK5LdM7FJXJsrb0JzeYCQoFz7khEvlS1sxAw8xIX+Zm/m9eUEe4RhNoAAAAASUVORK5CYII=">
-        
-        <!-- ### CSS ### -->
-        <!-- Bootstrap -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
-        <!-- app --> 
-        <link  rel="stylesheet"  th:href="@{/fonts/roboto-local.css}" />
-        <link  rel="stylesheet"  th:href="@{/css/template.css}" />
-
-    </head>	    
 </head>  
      
 <body>

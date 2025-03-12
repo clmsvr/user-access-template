@@ -1,5 +1,6 @@
 package cms.security;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,6 +19,7 @@ public class SecurityConfig {
 		http
 			.authorizeHttpRequests((requests) -> 
 				requests
+                    //.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 					.requestMatchers("/","/error","/user/open/*","/bootstrap/**","/css/**","/fonts/**","/image/**","/js/**")
 					.permitAll()
 					.requestMatchers("/user/mng/*").authenticated()
